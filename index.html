@@ -186,16 +186,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-06-10 18:54:45" itemprop="dateCreated datePublished" datetime="2021-06-10T18:54:45+08:00">2021-06-10</time>
+              <time title="创建时间：2021-06-10 18:54:45 / 修改时间：19:42:49" itemprop="dateCreated datePublished" datetime="2021-06-10T18:54:45+08:00">2021-06-10</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-30 09:29:28" itemprop="dateModified" datetime="2020-03-30T09:29:28+08:00">2020-03-30</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -218,14 +212,14 @@
 
       
           <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们今天接着来看一道关于二叉树的算法题，关于二叉树的深度。</p>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。</p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>求该树的深度，主要就是看最长路径。比如下图的深度为5，最长的路径为34，99，35，64，77<br><img src="https://img-blog.csdnimg.cn/20200210190247954.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>那应该怎么做了？这里用递归，如果当前节点没有左右节点，就返回当前节点，如果有左右节点，就返回左右节点的，比较左节点和右节点的深度，谁的深度大就返回那个。这样就可以获得树的最大深度啦。</p>
-<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public int TreeDepth(TreeNode root) &#123;</span><br><span class="line">        if(root==null)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        int left=TreeDepth(root.left);</span><br><span class="line">        int right=TreeDepth(root.right);</span><br><span class="line">        if(left&gt;right)&#123;</span><br><span class="line">            return left+1;</span><br><span class="line">        &#125;</span><br><span class="line">        return right+1;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>上面主要注意的是left+1 和right+1;为什么要加一呢，因为我们递归的出口是当前节点为null ,返回0，为1个节点的话返回1.</p>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>测试main方法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        TreeNode root =new TreeNode(34);</span><br><span class="line">        root.left=new TreeNode(23);</span><br><span class="line">        root.right=new TreeNode(99);</span><br><span class="line">        root.left.left=new TreeNode(1);</span><br><span class="line">        root.left.right=new TreeNode(27);</span><br><span class="line">        root.right.left=new TreeNode(35);</span><br><span class="line">        root.right.left.right=new TreeNode(64);</span><br><span class="line">        root.right.left.right.right=new TreeNode(77);</span><br><span class="line">        TreeOperation.show(root);</span><br><span class="line">        Solution solution= new Solution();</span><br><span class="line">        System.out.println(solution.TreeDepth(root));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200210192011852.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200210192140598.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/10/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
