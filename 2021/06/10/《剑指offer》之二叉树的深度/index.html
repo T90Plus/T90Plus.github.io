@@ -20,24 +20,25 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="前言我们关于栈的题目，这两天做的还是挺多的，无非就是压栈出栈。 题目输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4,5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的） 分析输入两个数组，第一个是入">
+  <meta name="description" content="前言我们今天接着来看一道关于二叉树的算法题，关于二叉树的深度。 题目输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。 分析求该树的深度，主要就是看最长路径。比如下图的深度为5，最长的路径为34，99，35，64，77那应该怎么做了？这里用递归，如果当前节点没有左右节点，就返回当前节点，如果有左右节点，就返回左右节点的，比较左节">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《剑指offer》之栈的压入、弹出序列">
-<meta property="og:url" content="http://example.com/2021/06/10/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/index.html">
+<meta property="og:title" content="《剑指offer》之二叉树的深度">
+<meta property="og:url" content="http://example.com/2021/06/10/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/index.html">
 <meta property="og:site_name" content="繁花似锦">
-<meta property="og:description" content="前言我们关于栈的题目，这两天做的还是挺多的，无非就是压栈出栈。 题目输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4,5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的） 分析输入两个数组，第一个是入">
+<meta property="og:description" content="前言我们今天接着来看一道关于二叉树的算法题，关于二叉树的深度。 题目输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。 分析求该树的深度，主要就是看最长路径。比如下图的深度为5，最长的路径为34，99，35，64，77那应该怎么做了？这里用递归，如果当前节点没有左右节点，就返回当前节点，如果有左右节点，就返回左右节点的，比较左节">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200206160102966.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200206160123471.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2021-06-10T08:18:02.400Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200210190247954.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200210192011852.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200210192140598.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-06-10T10:54:45.041Z">
 <meta property="article:modified_time" content="2020-03-30T01:29:28.000Z">
 <meta property="article:author" content="T90Plus">
 <meta property="article:tag" content="《剑指offer》">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200206160102966.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200210190247954.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="http://example.com/2021/06/10/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/">
+<link rel="canonical" href="http://example.com/2021/06/10/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/">
 
 
 <script id="page-configurations">
@@ -50,7 +51,7 @@
   };
 </script>
 
-  <title>《剑指offer》之栈的压入、弹出序列 | 繁花似锦</title>
+  <title>《剑指offer》之二叉树的深度 | 繁花似锦</title>
   
 
 
@@ -171,7 +172,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/10/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/10/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/author.jpg">
@@ -184,7 +185,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          《剑指offer》之栈的压入、弹出序列
+          《剑指offer》之二叉树的深度
         </h1>
 
         <div class="post-meta">
@@ -194,7 +195,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-06-10 16:18:02" itemprop="dateCreated datePublished" datetime="2021-06-10T16:18:02+08:00">2021-06-10</time>
+              <time title="创建时间：2021-06-10 18:54:45" itemprop="dateCreated datePublished" datetime="2021-06-10T18:54:45+08:00">2021-06-10</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -224,14 +225,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们关于栈的题目，这两天做的还是挺多的，无非就是压栈出栈。</p>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4,5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）</p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>输入两个数组，第一个是入栈的顺序，第二个是出栈的顺序，判断第二个数组出栈的顺序是否正确。<br>比如入栈：1，2，3，4，5<br>那出栈：5，4，3，2，1 可以<br>4，5，3，2，1也可以。<br>4，5，3，1，2就不行。<br>所以我们遍历第二个数组，找到在第一个数组找中的位置，这样在这之前的都先入栈，然后出栈。最后栈内容为空则表示，出栈的顺序是可以的，否则就不行。<br>具体例子说明，比较清楚。<br>比如list1：{1,2,3,4,5}<br>list2：｛4，5，3，2，1｝<br>先遍历数组list2<br>第一个为4，找到在list1 中的位置为3记录下来，将前面的数字都入栈。这时栈中的数据为1-&gt;2-&gt;3-&gt;4<br>然后出栈4，此时栈的数据为1-&gt;2-&gt;3。<br>第二个为5，找到在list1 中为4大于3 ，位置为4记录下来，所以将list1 中的3+1 到4的数据压入栈中，即将5压入栈，此时栈的数据为：1-&gt;2-&gt;3-&gt;5<br>然后出栈5，此时栈的数据为1-&gt;2-&gt;3<br>第三个为3，此时在list1 中的位置为2小于4，等于3，直接出栈。此时栈的数据为1-&gt;2<br>第四个为2，此时在list1 中的位置为1小于4，等于2，直接出栈。此时栈的数据为1<br>第四个为1，此时在list1 中的位置为0小于4，等于1，直接出栈。此时栈的数据为空<br>所以说明list2 是一种出栈方式。</p>
-<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public boolean IsPopOrder(int [] pushA,int [] popA) &#123;</span><br><span class="line">        Stack&lt;Integer&gt; stack=new Stack&lt;&gt;();</span><br><span class="line">        if(pushA==null||popA==null||popA.length==0||pushA.length==0)&#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        int temp=-1;</span><br><span class="line">        for(int i=0;i&lt;popA.length;i++)&#123;</span><br><span class="line">            int j=0;</span><br><span class="line">			//找到i 在list1 中的位置。</span><br><span class="line">            while(j&lt;popA.length &amp;&amp;pushA[j]!=popA[i])&#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            //如果找不到，则返回false</span><br><span class="line">            if(j==popA.length)&#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            while(temp&lt;j)&#123;</span><br><span class="line">                temp++;</span><br><span class="line">                stack.push(pushA[temp]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">			//如果相等，则出栈</span><br><span class="line">            if(stack.peek()==popA[i])&#123;</span><br><span class="line">                stack.pop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //如果为空，为真</span><br><span class="line">        if(stack.isEmpty())&#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>main  方法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        int [] pushA=&#123;1,2,3,4,5&#125;;</span><br><span class="line">        int [] popA=&#123;4,5,3,2,1&#125;;</span><br><span class="line">        Solution solution=new Solution();</span><br><span class="line">        boolean b=solution.IsPopOrder(pushA,popA);</span><br><span class="line">        System.out.println(b);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200206160102966.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200206160123471.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们今天接着来看一道关于二叉树的算法题，关于二叉树的深度。</p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>求该树的深度，主要就是看最长路径。比如下图的深度为5，最长的路径为34，99，35，64，77<br><img src="https://img-blog.csdnimg.cn/20200210190247954.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>那应该怎么做了？这里用递归，如果当前节点没有左右节点，就返回当前节点，如果有左右节点，就返回左右节点的，比较左节点和右节点的深度，谁的深度大就返回那个。这样就可以获得树的最大深度啦。</p>
+<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public int TreeDepth(TreeNode root) &#123;</span><br><span class="line">        if(root==null)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        int left=TreeDepth(root.left);</span><br><span class="line">        int right=TreeDepth(root.right);</span><br><span class="line">        if(left&gt;right)&#123;</span><br><span class="line">            return left+1;</span><br><span class="line">        &#125;</span><br><span class="line">        return right+1;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>上面主要注意的是left+1 和right+1;为什么要加一呢，因为我们递归的出口是当前节点为null ,返回0，为1个节点的话返回1.</p>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>测试main方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        TreeNode root =new TreeNode(34);</span><br><span class="line">        root.left=new TreeNode(23);</span><br><span class="line">        root.right=new TreeNode(99);</span><br><span class="line">        root.left.left=new TreeNode(1);</span><br><span class="line">        root.left.right=new TreeNode(27);</span><br><span class="line">        root.right.left=new TreeNode(35);</span><br><span class="line">        root.right.left.right=new TreeNode(64);</span><br><span class="line">        root.right.left.right.right=new TreeNode(77);</span><br><span class="line">        TreeOperation.show(root);</span><br><span class="line">        Solution solution= new Solution();</span><br><span class="line">        System.out.println(solution.TreeDepth(root));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200210192011852.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200210192140598.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
     </div>
 
@@ -262,11 +263,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/06/10/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/" rel="next" title="《剑指offer》之二叉树的深度">
-      《剑指offer》之二叉树的深度 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/06/10/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/" rel="prev" title="《剑指offer》之栈的压入、弹出序列">
+      <i class="fa fa-chevron-left"></i> 《剑指offer》之栈的压入、弹出序列
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
