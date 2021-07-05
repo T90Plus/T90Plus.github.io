@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="《剑指offer》之栈的压入、弹出序列, 精武门">
+    <meta name="keywords" content="调第三方厂家接口实现文件文件上传httpclient, 精武门">
     <meta name="description" content="博主喜欢梭哈">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>《剑指offer》之栈的压入、弹出序列 | 精武门</title>
+    <title>调第三方厂家接口实现文件文件上传httpclient | 精武门</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -247,12 +247,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">《剑指offer》之栈的压入、弹出序列</h1>
+                    <h1 class="description center-align post-title">调第三方厂家接口实现文件文件上传httpclient</h1>
                 </div>
             </div>
         </div>
@@ -368,12 +368,20 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B/">
-                                <span class="chip bg-color">《剑指offer》</span>
+                            <a href="/tags/springboot/">
+                                <span class="chip bg-color">springboot</span>
                             </a>
                         
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
+                            </a>
+                        
+                            <a href="/tags/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/">
+                                <span class="chip bg-color">上传文件</span>
+                            </a>
+                        
+                            <a href="/tags/httpclient/">
+                                <span class="chip bg-color">httpclient</span>
                             </a>
                         
                     </div>
@@ -384,8 +392,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/springBoot%E7%95%AA%E5%A4%96%E7%AF%87/" class="post-category">
+                                springBoot番外篇
                             </a>
                         
                     </div>
@@ -397,7 +405,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-10
+                    2021-07-05
                 </div>
                 
 
@@ -418,15 +426,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们关于栈的题目，这两天做的还是挺多的，无非就是压栈出栈。</p>
-<span id="more"></span>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4,5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）</p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>输入两个数组，第一个是入栈的顺序，第二个是出栈的顺序，判断第二个数组出栈的顺序是否正确。<br>比如入栈：1，2，3，4，5<br>那出栈：5，4，3，2，1 可以<br>4，5，3，2，1也可以。<br>4，5，3，1，2就不行。<br>所以我们遍历第二个数组，找到在第一个数组找中的位置，这样在这之前的都先入栈，然后出栈。最后栈内容为空则表示，出栈的顺序是可以的，否则就不行。<br>具体例子说明，比较清楚。<br>比如list1：{1,2,3,4,5}<br>list2：｛4，5，3，2，1｝<br>先遍历数组list2<br>第一个为4，找到在list1 中的位置为3记录下来，将前面的数字都入栈。这时栈中的数据为1-&gt;2-&gt;3-&gt;4<br>然后出栈4，此时栈的数据为1-&gt;2-&gt;3。<br>第二个为5，找到在list1 中为4大于3 ，位置为4记录下来，所以将list1 中的3+1 到4的数据压入栈中，即将5压入栈，此时栈的数据为：1-&gt;2-&gt;3-&gt;5<br>然后出栈5，此时栈的数据为1-&gt;2-&gt;3<br>第三个为3，此时在list1 中的位置为2小于4，等于3，直接出栈。此时栈的数据为1-&gt;2<br>第四个为2，此时在list1 中的位置为1小于4，等于2，直接出栈。此时栈的数据为1<br>第四个为1，此时在list1 中的位置为0小于4，等于1，直接出栈。此时栈的数据为空<br>所以说明list2 是一种出栈方式。</p>
-<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public boolean IsPopOrder(int [] pushA,int [] popA) &#123;</span><br><span class="line">        Stack&lt;Integer&gt; stack=new Stack&lt;&gt;();</span><br><span class="line">        if(pushA==null||popA==null||popA.length==0||pushA.length==0)&#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        int temp=-1;</span><br><span class="line">        for(int i=0;i&lt;popA.length;i++)&#123;</span><br><span class="line">            int j=0;</span><br><span class="line">			//找到i 在list1 中的位置。</span><br><span class="line">            while(j&lt;popA.length &amp;&amp;pushA[j]!=popA[i])&#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            //如果找不到，则返回false</span><br><span class="line">            if(j==popA.length)&#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            while(temp&lt;j)&#123;</span><br><span class="line">                temp++;</span><br><span class="line">                stack.push(pushA[temp]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">			//如果相等，则出栈</span><br><span class="line">            if(stack.peek()==popA[i])&#123;</span><br><span class="line">                stack.pop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //如果为空，为真</span><br><span class="line">        if(stack.isEmpty())&#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这种情况算是很少见的，前端上传文件到服务端，服务端接收文件，再调第三方接口，将文件存到第三方服务器。</p>
+<p>从客户端接收文件的就不说了，比较常见，就记录下调第三方接口带参数。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>url为路径<br>jsonObject为常规的请求参数<br>token 为鉴权<br>file 为文件。大伙根据自己的需求进行修改。<br>核心代码为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">MultipartEntityBuilder reqEntity = MultipartEntityBuilder.create();</span><br><span class="line">reqEntity.addBinaryBody(&quot;file&quot;, new FileInputStream(file), ContentType.DEFAULT_BINARY, file.getName());</span><br><span class="line">            Iterator iter = jsonObject.entrySet().iterator();</span><br><span class="line"></span><br><span class="line">            while (iter.hasNext()) &#123;</span><br><span class="line">                Map.Entry entry = (Map.Entry) iter.next();</span><br><span class="line">                System.out.println(entry.getKey().toString());</span><br><span class="line">                System.out.println(entry.getValue().toString());</span><br><span class="line"></span><br><span class="line">                StringBody value = new StringBody(entry.getValue().toString(), ContentType.create(&quot;text/plain&quot;, Consts.UTF_8));</span><br><span class="line">                reqEntity.addPart(entry.getKey().toString(),value);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            HttpEntity httpEntity = reqEntity.build();</span><br><span class="line">            HttpPost httppost = new HttpPost(urlBuilder.toString());</span><br><span class="line">            httppost.setEntity(httpEntity);</span><br></pre></td></tr></table></figure>
+<p>主要是使用MultipartEntityBuilder 将文件通过body 进行传输。<br>完整方法代码。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">public static String sendPost(String url, JSONObject jsonObject, String token,File file) &#123;</span><br><span class="line">        StringBuilder urlBuilder = new StringBuilder(baseURLPath);</span><br><span class="line">        urlBuilder.append(url);</span><br><span class="line">        log.info(&quot;URL:&quot; + url);</span><br><span class="line">        log.info(&quot;Parm:&quot; + jsonObject);</span><br><span class="line">        FileBody fileBody=new FileBody(file);</span><br><span class="line">        MultipartEntityBuilder reqEntity = MultipartEntityBuilder.create();</span><br><span class="line"></span><br><span class="line">        try &#123;</span><br><span class="line">            reqEntity.addBinaryBody(&quot;file&quot;, new FileInputStream(file), ContentType.DEFAULT_BINARY, file.getName());</span><br><span class="line">            Iterator iter = jsonObject.entrySet().iterator();</span><br><span class="line"></span><br><span class="line">            while (iter.hasNext()) &#123;</span><br><span class="line">                Map.Entry entry = (Map.Entry) iter.next();</span><br><span class="line">                System.out.println(entry.getKey().toString());</span><br><span class="line">                System.out.println(entry.getValue().toString());</span><br><span class="line"></span><br><span class="line">                StringBody value = new StringBody(entry.getValue().toString(), ContentType.create(&quot;text/plain&quot;, Consts.UTF_8));</span><br><span class="line">                reqEntity.addPart(entry.getKey().toString(),value);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            HttpEntity httpEntity = reqEntity.build();</span><br><span class="line">            HttpPost httppost = new HttpPost(urlBuilder.toString());</span><br><span class="line">            httppost.setEntity(httpEntity);</span><br><span class="line">            setHttpHeader(httppost, token);</span><br><span class="line"></span><br><span class="line">            RequestConfig config = RequestConfig.custom()</span><br><span class="line">					.setConnectTimeout(1000)</span><br><span class="line">					.setConnectionRequestTimeout(1000)</span><br><span class="line">					.setSocketTimeout(10 *1000)</span><br><span class="line">					.build();</span><br><span class="line">            //数据传输的超时时间</span><br><span class="line">            httppost.setConfig(config);</span><br><span class="line">            String result = getPostResult(httppost);</span><br><span class="line">            log.info(result);</span><br><span class="line">            return result;</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            log.error(e);</span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">private static void setHttpHeader(HttpPost httppost, String token) &#123;</span><br><span class="line">		httppost.setHeader(&quot;Authorization&quot;, &quot;Bearer &quot; + token);</span><br><span class="line">	&#125;</span><br><span class="line">/**</span><br><span class="line">	 * 获取post请求返回结果</span><br><span class="line">	 * </span><br><span class="line">	 * @param httppost</span><br><span class="line">	 * @return</span><br><span class="line">	 */</span><br><span class="line">	private static String getPostResult(HttpPost httppost) &#123;</span><br><span class="line">		String result = null;</span><br><span class="line">		try (CloseableHttpResponse response = httpclient.execute(httppost);) &#123;</span><br><span class="line">			HttpEntity entity = response.getEntity();</span><br><span class="line">			result = EntityUtils.toString(entity);</span><br><span class="line">			if (result.contains(&quot;Invalid token&quot;)) &#123;</span><br><span class="line">				result = &quot;Token 过期，请重新登录&quot;;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			log.error(e.toString());</span><br><span class="line">			result = &quot;HTTP请求异常,请重试&quot;;</span><br><span class="line">		&#125;</span><br><span class="line">		return result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>main  方法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        int [] pushA=&#123;1,2,3,4,5&#125;;</span><br><span class="line">        int [] popA=&#123;4,5,3,2,1&#125;;</span><br><span class="line">        Solution solution=new Solution();</span><br><span class="line">        boolean b=solution.IsPopOrder(pushA,popA);</span><br><span class="line">        System.out.println(b);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200206160102966.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200206160123471.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>使用的是httpclient。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;httpclient&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.5.3&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;httpcore-nio&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.4.4&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;httpcore&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.4.4&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;httpclient-win&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.5.2&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;httpclient-cache&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.5.2&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;httpasyncclient&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.0-beta3&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -453,7 +461,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://cracker.wang/2021/06/10/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/">http://cracker.wang/2021/06/10/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/</a>
+                    <a href="http://cracker.wang/2021/07/05/%E8%B0%83%E7%AC%AC%E4%B8%89%E6%96%B9%E5%8E%82%E5%AE%B6%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0httpclient/">http://cracker.wang/2021/07/05/%E8%B0%83%E7%AC%AC%E4%B8%89%E6%96%B9%E5%8E%82%E5%AE%B6%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0httpclient/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -491,12 +499,20 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B/">
-                                    <span class="chip bg-color">《剑指offer》</span>
+                                <a href="/tags/springboot/">
+                                    <span class="chip bg-color">springboot</span>
                                 </a>
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
+                                </a>
+                            
+                                <a href="/tags/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/">
+                                    <span class="chip bg-color">上传文件</span>
+                                </a>
+                            
+                                <a href="/tags/httpclient/">
+                                    <span class="chip bg-color">httpclient</span>
                                 </a>
                             
                         </div>
@@ -666,88 +682,36 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/06/10/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/">
+                <a href="/2021/07/05/%E8%B0%83%E7%AC%AC%E4%B8%89%E6%96%B9%E5%8E%82%E5%AE%B6%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0httpclient/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="《剑指offer》之二叉树的深度">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="调第三方厂家接口实现文件文件上传httpclient">
                         
-                        <span class="card-title">《剑指offer》之二叉树的深度</span>
+                        <span class="card-title">调第三方厂家接口实现文件文件上传httpclient</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言我们今天接着来看一道关于二叉树的算法题，关于二叉树的深度。
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-10
-                        </span>
-                        <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B/">
-                        <span class="chip bg-color">《剑指offer》</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/06/10/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="《剑指offer》之栈的压入、弹出序列">
-                        
-                        <span class="card-title">《剑指offer》之栈的压入、弹出序列</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            前言我们关于栈的题目，这两天做的还是挺多的，无非就是压栈出栈。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/springBoot%E7%95%AA%E5%A4%96%E7%AF%87/" class="post-category">
+                                    springBoot番外篇
                                 </a>
                             
                             
@@ -758,12 +722,73 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B/">
-                        <span class="chip bg-color">《剑指offer》</span>
+                    <a href="/tags/springboot/">
+                        <span class="chip bg-color">springboot</span>
                     </a>
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/">
+                        <span class="chip bg-color">上传文件</span>
+                    </a>
+                    
+                    <a href="/tags/httpclient/">
+                        <span class="chip bg-color">httpclient</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/06/28/%E4%B8%80%E3%80%81docker%20%E5%85%A5%E5%9D%91(win10%E5%92%8CUbuntu%20%E5%AE%89%E8%A3%85)/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="一、docker 入坑(win10和Ubuntu 安装)">
+                        
+                        <span class="card-title">一、docker 入坑(win10和Ubuntu 安装)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            前言终究还是绕不过去了，要学的知识真的是太多了，好在我们还有时间，docker 之前只闻其声，不曾真正的接触过，现在docker 越来越火，很多公司也都开始使用了。所以对于我们程序员而言，又得修炼一项必备技能了。所以让我们勇敢的踏出第一步，
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/docker/" class="post-category">
+                                    docker
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/docker/">
+                        <span class="chip bg-color">docker</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>
