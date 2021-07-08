@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="《剑指offer》之斐波那契数列系列, CNB!">
-    <meta name="description" content="放开心态干就完了">
+    <meta name="keywords" content="《剑指offer》之斐波那契数列系列, 繁花似锦&#39;Blogs">
+    <meta name="description" content="民国三年等不到一场雨，此生等不到表哥一句我带你">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>《剑指offer》之斐波那契数列系列 | CNB!</title>
+    <title>《剑指offer》之斐波那契数列系列 | 繁花似锦&#39;Blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 
 
@@ -43,7 +43,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">CNB!</span>
+                    <span class="logo-span">繁花似锦&#39;Blogs</span>
                 </a>
             </div>
             
@@ -142,10 +142,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">CNB!</div>
+        <div class="logo-name">繁花似锦&#39;Blogs</div>
         <div class="logo-desc">
             
-            放开心态干就完了
+            民国三年等不到一场雨，此生等不到表哥一句我带你
             
         </div>
     </div>
@@ -419,13 +419,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>斐波那契数列 算是比较常见的算法题了。<br>f(1)=1;<br>f(2)=1;<br>f(3)=2;<br>…</p>
-<span id="more"></span>
+<a id="more"></a>
 <p>f(n)=f(n-1)+f(n-2);<br>一般采用递归的思想。今天做了几个关于斐波那契数列，都记录下来。</p>
 <h1 id="题目一"><a href="#题目一" class="headerlink" title="题目一"></a>题目一</h1><p>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。<br>n&lt;=39</p>
 <p>这个是最原始的，就是上面我说的斐波那契数列。代码实现如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public int Fibonacci(int n) &#123;</span><br><span class="line">        if(n&lt;0)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;else if(n==1 || n==2)&#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">        return Fibonacci(n-1)+Fibonacci(n-2);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public int Fibonacci(int n) &#123;</span><br><span class="line">        if(n&lt;0)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;else if(n&#x3D;&#x3D;1 || n&#x3D;&#x3D;2)&#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">        return Fibonacci(n-1)+Fibonacci(n-2);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>可以看到非常简单，但是递归算法虽然方便，但是耗时比较长，我们也可以用循环实现。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public int Fibonacci(int n) &#123;</span><br><span class="line"></span><br><span class="line">        if(n&lt;0)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;else if(n==1 || n==2)&#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">        int a=1;</span><br><span class="line">        int b=1;</span><br><span class="line">        int c=0;</span><br><span class="line">        for(int i=3;i&lt;=n;i++)&#123;</span><br><span class="line">            c=a+b;</span><br><span class="line">            a=b;</span><br><span class="line">            b=c;</span><br><span class="line">        &#125;</span><br><span class="line">        return c;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public int Fibonacci(int n) &#123;</span><br><span class="line"></span><br><span class="line">        if(n&lt;0)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;else if(n&#x3D;&#x3D;1 || n&#x3D;&#x3D;2)&#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">        int a&#x3D;1;</span><br><span class="line">        int b&#x3D;1;</span><br><span class="line">        int c&#x3D;0;</span><br><span class="line">        for(int i&#x3D;3;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">            c&#x3D;a+b;</span><br><span class="line">            a&#x3D;b;</span><br><span class="line">            b&#x3D;c;</span><br><span class="line">        &#125;</span><br><span class="line">        return c;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>用循环实现的话，减少了时间损耗，增加了空间成本。所以具体情况具体分析还得。</p>
 <h1 id="题目二"><a href="#题目二" class="headerlink" title="题目二"></a>题目二</h1><p>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。</p>
 <p>这是一道斐波那契数列，我们读题可以发现。<br>只有一个台阶，一种跳法。<br>f(1)=1;<br>只要两个台阶，两种跳法。<br>f(2)=2；</p>
@@ -434,7 +434,7 @@
 <h1 id="题目三"><a href="#题目三" class="headerlink" title="题目三"></a>题目三</h1><p>一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
 <p>在上面的基础上，可以跳n个台阶。<br>f(n)=f(n-1)+f(n-2)+f(n-3)+……+f(3)+f(2)+f(1);<br>f(n-1)=f(n-2)+f(n-3)+……+f(3)+f(2)+f(1);</p>
 <p>所以上试减下试。<br>f(n)-f(n-1)=f(n-1)+f(n-2)+f(n-3)+……+f(3)+f(2)+f(1)-[f(n-2)+f(n-3)+……+f(3)+f(2)+f(1)];<br> 所以：<br> f(n)-f(n-1)=f(n-1)；<br> f(n)=2f(n-1);n&gt;1<br>所以代码为：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public int JumpFloorII(int target) &#123;</span><br><span class="line">        if(target&lt;1) return 0;</span><br><span class="line">    	else if (target==1) return 1;</span><br><span class="line">        else return 2*JumpFloorII(target-1);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public int JumpFloorII(int target) &#123;</span><br><span class="line">        if(target&lt;1) return 0;</span><br><span class="line">    	else if (target&#x3D;&#x3D;1) return 1;</span><br><span class="line">        else return 2*JumpFloorII(target-1);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="题目四"><a href="#题目四" class="headerlink" title="题目四"></a>题目四</h1><p>我们可以用2<em>1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2</em>1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？</p>
 <p>这道题目相对前面几道，比较难理解是斐波那契数列。<br>我们来分析一下。<br>当n=1 时，只有一种情况。<br>f(1)=1;<br>当n=2时，2个2<em>1的小矩形，拼成2</em>2的大矩形。有2种方法。<br>f(2)=2;<br>当n=3时，3个2<em>1的小矩形，拼成2</em>3的大矩形。<br>这个时候我们就要想下，2<em>3的矩形是一个2</em>1 和一个2<em>2的矩形组成的。<br>当n=5时，5个2</em>1的小矩形，拼成2<em>5的大矩形。<br>这个时候我们就要想下，2</em>5的矩形是一个2<em>4的矩形加一个2</em>1的矩形组成，或者一个2<em>3的矩形加一个2</em>2 的矩形组成。</p>
@@ -816,7 +816,7 @@
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '来源: CNB!<br />'
+            + '来源: 繁花似锦&#39;Blogs<br />'
             + '文章作者: 吕四鹰<br />'
             + '文章链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';

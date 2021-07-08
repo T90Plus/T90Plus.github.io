@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="《剑指offer》之栈的压入、弹出序列, CNB!">
-    <meta name="description" content="放开心态干就完了">
+    <meta name="keywords" content="《剑指offer》之栈的压入、弹出序列, 繁花似锦&#39;Blogs">
+    <meta name="description" content="民国三年等不到一场雨，此生等不到表哥一句我带你">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>《剑指offer》之栈的压入、弹出序列 | CNB!</title>
+    <title>《剑指offer》之栈的压入、弹出序列 | 繁花似锦&#39;Blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 
 
@@ -43,7 +43,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">CNB!</span>
+                    <span class="logo-span">繁花似锦&#39;Blogs</span>
                 </a>
             </div>
             
@@ -142,10 +142,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">CNB!</div>
+        <div class="logo-name">繁花似锦&#39;Blogs</div>
         <div class="logo-desc">
             
-            放开心态干就完了
+            民国三年等不到一场雨，此生等不到表哥一句我带你
             
         </div>
     </div>
@@ -419,13 +419,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们关于栈的题目，这两天做的还是挺多的，无非就是压栈出栈。</p>
-<span id="more"></span>
+<a id="more"></a>
 <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4,5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）</p>
 <h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>输入两个数组，第一个是入栈的顺序，第二个是出栈的顺序，判断第二个数组出栈的顺序是否正确。<br>比如入栈：1，2，3，4，5<br>那出栈：5，4，3，2，1 可以<br>4，5，3，2，1也可以。<br>4，5，3，1，2就不行。<br>所以我们遍历第二个数组，找到在第一个数组找中的位置，这样在这之前的都先入栈，然后出栈。最后栈内容为空则表示，出栈的顺序是可以的，否则就不行。<br>具体例子说明，比较清楚。<br>比如list1：{1,2,3,4,5}<br>list2：｛4，5，3，2，1｝<br>先遍历数组list2<br>第一个为4，找到在list1 中的位置为3记录下来，将前面的数字都入栈。这时栈中的数据为1-&gt;2-&gt;3-&gt;4<br>然后出栈4，此时栈的数据为1-&gt;2-&gt;3。<br>第二个为5，找到在list1 中为4大于3 ，位置为4记录下来，所以将list1 中的3+1 到4的数据压入栈中，即将5压入栈，此时栈的数据为：1-&gt;2-&gt;3-&gt;5<br>然后出栈5，此时栈的数据为1-&gt;2-&gt;3<br>第三个为3，此时在list1 中的位置为2小于4，等于3，直接出栈。此时栈的数据为1-&gt;2<br>第四个为2，此时在list1 中的位置为1小于4，等于2，直接出栈。此时栈的数据为1<br>第四个为1，此时在list1 中的位置为0小于4，等于1，直接出栈。此时栈的数据为空<br>所以说明list2 是一种出栈方式。</p>
-<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public boolean IsPopOrder(int [] pushA,int [] popA) &#123;</span><br><span class="line">        Stack&lt;Integer&gt; stack=new Stack&lt;&gt;();</span><br><span class="line">        if(pushA==null||popA==null||popA.length==0||pushA.length==0)&#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        int temp=-1;</span><br><span class="line">        for(int i=0;i&lt;popA.length;i++)&#123;</span><br><span class="line">            int j=0;</span><br><span class="line">			//找到i 在list1 中的位置。</span><br><span class="line">            while(j&lt;popA.length &amp;&amp;pushA[j]!=popA[i])&#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            //如果找不到，则返回false</span><br><span class="line">            if(j==popA.length)&#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            while(temp&lt;j)&#123;</span><br><span class="line">                temp++;</span><br><span class="line">                stack.push(pushA[temp]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">			//如果相等，则出栈</span><br><span class="line">            if(stack.peek()==popA[i])&#123;</span><br><span class="line">                stack.pop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //如果为空，为真</span><br><span class="line">        if(stack.isEmpty())&#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public boolean IsPopOrder(int [] pushA,int [] popA) &#123;</span><br><span class="line">        Stack&lt;Integer&gt; stack&#x3D;new Stack&lt;&gt;();</span><br><span class="line">        if(pushA&#x3D;&#x3D;null||popA&#x3D;&#x3D;null||popA.length&#x3D;&#x3D;0||pushA.length&#x3D;&#x3D;0)&#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        int temp&#x3D;-1;</span><br><span class="line">        for(int i&#x3D;0;i&lt;popA.length;i++)&#123;</span><br><span class="line">            int j&#x3D;0;</span><br><span class="line">			&#x2F;&#x2F;找到i 在list1 中的位置。</span><br><span class="line">            while(j&lt;popA.length &amp;&amp;pushA[j]!&#x3D;popA[i])&#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F;如果找不到，则返回false</span><br><span class="line">            if(j&#x3D;&#x3D;popA.length)&#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            while(temp&lt;j)&#123;</span><br><span class="line">                temp++;</span><br><span class="line">                stack.push(pushA[temp]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">			&#x2F;&#x2F;如果相等，则出栈</span><br><span class="line">            if(stack.peek()&#x3D;&#x3D;popA[i])&#123;</span><br><span class="line">                stack.pop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;如果为空，为真</span><br><span class="line">        if(stack.isEmpty())&#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>main  方法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        int [] pushA=&#123;1,2,3,4,5&#125;;</span><br><span class="line">        int [] popA=&#123;4,5,3,2,1&#125;;</span><br><span class="line">        Solution solution=new Solution();</span><br><span class="line">        boolean b=solution.IsPopOrder(pushA,popA);</span><br><span class="line">        System.out.println(b);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        int [] pushA&#x3D;&#123;1,2,3,4,5&#125;;</span><br><span class="line">        int [] popA&#x3D;&#123;4,5,3,2,1&#125;;</span><br><span class="line">        Solution solution&#x3D;new Solution();</span><br><span class="line">        boolean b&#x3D;solution.IsPopOrder(pushA,popA);</span><br><span class="line">        System.out.println(b);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p><img src="https://img-blog.csdnimg.cn/20200206160102966.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200206160123471.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
                 
@@ -803,7 +803,7 @@
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '来源: CNB!<br />'
+            + '来源: 繁花似锦&#39;Blogs<br />'
             + '文章作者: 吕四鹰<br />'
             + '文章链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
