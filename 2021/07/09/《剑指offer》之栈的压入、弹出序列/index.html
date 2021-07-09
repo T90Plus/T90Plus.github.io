@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="《剑指offer》之斐波那契数列系列, 繁花似锦&#39;Blogs">
+    <meta name="keywords" content="《剑指offer》之栈的压入、弹出序列, 繁花似锦&#39;Blogs">
     <meta name="description" content="民国三年等不到一场雨，此生等不到表哥一句我带你">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>《剑指offer》之斐波那契数列系列 | 繁花似锦&#39;Blogs</title>
+    <title>《剑指offer》之栈的压入、弹出序列 | 繁花似锦&#39;Blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -247,12 +247,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">《剑指offer》之斐波那契数列系列</h1>
+                    <h1 class="description center-align post-title">《剑指offer》之栈的压入、弹出序列</h1>
                 </div>
             </div>
         </div>
@@ -397,7 +397,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-12
+                    2021-07-09
                 </div>
                 
 
@@ -418,28 +418,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>斐波那契数列 算是比较常见的算法题了。<br>f(1)=1;<br>f(2)=1;<br>f(3)=2;<br>…</p>
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们关于栈的题目，这两天做的还是挺多的，无非就是压栈出栈。</p>
 <a id="more"></a>
-<p>f(n)=f(n-1)+f(n-2);<br>一般采用递归的思想。今天做了几个关于斐波那契数列，都记录下来。</p>
-<h1 id="题目一"><a href="#题目一" class="headerlink" title="题目一"></a>题目一</h1><p>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。<br>n&lt;=39</p>
-<p>这个是最原始的，就是上面我说的斐波那契数列。代码实现如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public int Fibonacci(int n) &#123;</span><br><span class="line">        if(n&lt;0)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;else if(n&#x3D;&#x3D;1 || n&#x3D;&#x3D;2)&#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">        return Fibonacci(n-1)+Fibonacci(n-2);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>可以看到非常简单，但是递归算法虽然方便，但是耗时比较长，我们也可以用循环实现。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public int Fibonacci(int n) &#123;</span><br><span class="line"></span><br><span class="line">        if(n&lt;0)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;else if(n&#x3D;&#x3D;1 || n&#x3D;&#x3D;2)&#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">        int a&#x3D;1;</span><br><span class="line">        int b&#x3D;1;</span><br><span class="line">        int c&#x3D;0;</span><br><span class="line">        for(int i&#x3D;3;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">            c&#x3D;a+b;</span><br><span class="line">            a&#x3D;b;</span><br><span class="line">            b&#x3D;c;</span><br><span class="line">        &#125;</span><br><span class="line">        return c;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>用循环实现的话，减少了时间损耗，增加了空间成本。所以具体情况具体分析还得。</p>
-<h1 id="题目二"><a href="#题目二" class="headerlink" title="题目二"></a>题目二</h1><p>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。</p>
-<p>这是一道斐波那契数列，我们读题可以发现。<br>只有一个台阶，一种跳法。<br>f(1)=1;<br>只要两个台阶，两种跳法。<br>f(2)=2；</p>
-<p>只要三个台阶，从第一个台阶跳2步上来，或者从第二个台阶跳一步上来。<br>f(3)=f(1)+f(2)</p>
-<p>n 个台阶，从n-1台阶跳一步上来，或者从n-2 台阶跳2步上来。<br>f(n)=f(n-1)+f(n-2);<br>所以这就是一道典型的斐波那契数列。代码和上面一样。</p>
-<h1 id="题目三"><a href="#题目三" class="headerlink" title="题目三"></a>题目三</h1><p>一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
-<p>在上面的基础上，可以跳n个台阶。<br>f(n)=f(n-1)+f(n-2)+f(n-3)+……+f(3)+f(2)+f(1);<br>f(n-1)=f(n-2)+f(n-3)+……+f(3)+f(2)+f(1);</p>
-<p>所以上试减下试。<br>f(n)-f(n-1)=f(n-1)+f(n-2)+f(n-3)+……+f(3)+f(2)+f(1)-[f(n-2)+f(n-3)+……+f(3)+f(2)+f(1)];<br> 所以：<br> f(n)-f(n-1)=f(n-1)；<br> f(n)=2f(n-1);n&gt;1<br>所以代码为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public int JumpFloorII(int target) &#123;</span><br><span class="line">        if(target&lt;1) return 0;</span><br><span class="line">    	else if (target&#x3D;&#x3D;1) return 1;</span><br><span class="line">        else return 2*JumpFloorII(target-1);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4,5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>输入两个数组，第一个是入栈的顺序，第二个是出栈的顺序，判断第二个数组出栈的顺序是否正确。<br>比如入栈：1，2，3，4，5<br>那出栈：5，4，3，2，1 可以<br>4，5，3，2，1也可以。<br>4，5，3，1，2就不行。<br>所以我们遍历第二个数组，找到在第一个数组找中的位置，这样在这之前的都先入栈，然后出栈。最后栈内容为空则表示，出栈的顺序是可以的，否则就不行。<br>具体例子说明，比较清楚。<br>比如list1：{1,2,3,4,5}<br>list2：｛4，5，3，2，1｝<br>先遍历数组list2<br>第一个为4，找到在list1 中的位置为3记录下来，将前面的数字都入栈。这时栈中的数据为1-&gt;2-&gt;3-&gt;4<br>然后出栈4，此时栈的数据为1-&gt;2-&gt;3。<br>第二个为5，找到在list1 中为4大于3 ，位置为4记录下来，所以将list1 中的3+1 到4的数据压入栈中，即将5压入栈，此时栈的数据为：1-&gt;2-&gt;3-&gt;5<br>然后出栈5，此时栈的数据为1-&gt;2-&gt;3<br>第三个为3，此时在list1 中的位置为2小于4，等于3，直接出栈。此时栈的数据为1-&gt;2<br>第四个为2，此时在list1 中的位置为1小于4，等于2，直接出栈。此时栈的数据为1<br>第四个为1，此时在list1 中的位置为0小于4，等于1，直接出栈。此时栈的数据为空<br>所以说明list2 是一种出栈方式。</p>
+<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public boolean IsPopOrder(int [] pushA,int [] popA) &#123;</span><br><span class="line">        Stack&lt;Integer&gt; stack&#x3D;new Stack&lt;&gt;();</span><br><span class="line">        if(pushA&#x3D;&#x3D;null||popA&#x3D;&#x3D;null||popA.length&#x3D;&#x3D;0||pushA.length&#x3D;&#x3D;0)&#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        int temp&#x3D;-1;</span><br><span class="line">        for(int i&#x3D;0;i&lt;popA.length;i++)&#123;</span><br><span class="line">            int j&#x3D;0;</span><br><span class="line">			&#x2F;&#x2F;找到i 在list1 中的位置。</span><br><span class="line">            while(j&lt;popA.length &amp;&amp;pushA[j]!&#x3D;popA[i])&#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F;如果找不到，则返回false</span><br><span class="line">            if(j&#x3D;&#x3D;popA.length)&#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            while(temp&lt;j)&#123;</span><br><span class="line">                temp++;</span><br><span class="line">                stack.push(pushA[temp]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">			&#x2F;&#x2F;如果相等，则出栈</span><br><span class="line">            if(stack.peek()&#x3D;&#x3D;popA[i])&#123;</span><br><span class="line">                stack.pop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;如果为空，为真</span><br><span class="line">        if(stack.isEmpty())&#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="题目四"><a href="#题目四" class="headerlink" title="题目四"></a>题目四</h1><p>我们可以用2<em>1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2</em>1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？</p>
-<p>这道题目相对前面几道，比较难理解是斐波那契数列。<br>我们来分析一下。<br>当n=1 时，只有一种情况。<br>f(1)=1;<br>当n=2时，2个2<em>1的小矩形，拼成2</em>2的大矩形。有2种方法。<br>f(2)=2;<br>当n=3时，3个2<em>1的小矩形，拼成2</em>3的大矩形。<br>这个时候我们就要想下，2<em>3的矩形是一个2</em>1 和一个2<em>2的矩形组成的。<br>当n=5时，5个2</em>1的小矩形，拼成2<em>5的大矩形。<br>这个时候我们就要想下，2</em>5的矩形是一个2<em>4的矩形加一个2</em>1的矩形组成，或者一个2<em>3的矩形加一个2</em>2 的矩形组成。</p>
-<p>所以可以推测出还是一个斐波那契数列。<br>f(n)=f(n-1)+f(n-2);</p>
-<p>代码和最开始一样，就不重复啦。</p>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>main  方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        int [] pushA&#x3D;&#123;1,2,3,4,5&#125;;</span><br><span class="line">        int [] popA&#x3D;&#123;4,5,3,2,1&#125;;</span><br><span class="line">        Solution solution&#x3D;new Solution();</span><br><span class="line">        boolean b&#x3D;solution.IsPopOrder(pushA,popA);</span><br><span class="line">        System.out.println(b);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200206160102966.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200206160123471.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
                 
             </div>
@@ -466,7 +453,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://cracker.wang/2021/06/12/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%B3%BB%E5%88%97/">http://cracker.wang/2021/06/12/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%B3%BB%E5%88%97/</a>
+                    <a href="http://cracker.wang/2021/07/09/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/">http://cracker.wang/2021/07/09/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -683,31 +670,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/06/28/%E4%B8%80%E3%80%81docker%20%E5%85%A5%E5%9D%91(win10%E5%92%8CUbuntu%20%E5%AE%89%E8%A3%85)/">
+                <a href="/2021/07/09/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E5%AE%9E%E7%8E%B0%E5%B1%9E%E6%80%A7%E7%9A%84%E5%8A%A8%E6%80%81%E6%B3%A8%E5%85%A5/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="一、docker 入坑(win10和Ubuntu 安装)">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="如何优雅实现属性的动态注入">
                         
-                        <span class="card-title">一、docker 入坑(win10和Ubuntu 安装)</span>
+                        <span class="card-title">如何优雅实现属性的动态注入</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言终究还是绕不过去了，要学的知识真的是太多了，好在我们还有时间，docker 之前只闻其声，不曾真正的接触过，现在docker 越来越火，很多公司也都开始使用了。所以对于我们程序员而言，又得修炼一项必备技能了。所以让我们勇敢的踏出第一步，
+                            
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-28
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-09
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/docker/" class="post-category">
-                                    docker
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
@@ -717,12 +704,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/docker/">
-                        <span class="chip bg-color">docker</span>
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
                     </a>
                     
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
+                    <a href="/tags/%E5%8A%A8%E6%80%81%E6%B3%A8%E5%85%A5/">
+                        <span class="chip bg-color">动态注入</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%98%A0%E5%B0%84/">
+                        <span class="chip bg-color">映射</span>
                     </a>
                     
                 </div>
@@ -736,24 +727,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/11/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">
+                <a href="/2021/07/09/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="《剑指offer》之反转链表">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="《剑指offer》之顺时针打印矩阵">
                         
-                        <span class="card-title">《剑指offer》之反转链表</span>
+                        <span class="card-title">《剑指offer》之顺时针打印矩阵</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言今天又刷了一道关于链表的，本来打算接着前面一篇关于链表的写，但是想想还是再起一篇。
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-09
                             </span>
                         <span class="publish-author">
                             

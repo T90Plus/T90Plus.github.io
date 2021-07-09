@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="《剑指offer》之反转链表, 繁花似锦&#39;Blogs">
+    <meta name="keywords" content="《剑指offer》之扑克牌顺子, 繁花似锦&#39;Blogs">
     <meta name="description" content="民国三年等不到一场雨，此生等不到表哥一句我带你">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>《剑指offer》之反转链表 | 繁花似锦&#39;Blogs</title>
+    <title>《剑指offer》之扑克牌顺子 | 繁花似锦&#39;Blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -247,12 +247,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">《剑指offer》之反转链表</h1>
+                    <h1 class="description center-align post-title">《剑指offer》之扑克牌顺子</h1>
                 </div>
             </div>
         </div>
@@ -397,7 +397,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-11
+                    2021-07-09
                 </div>
                 
 
@@ -418,29 +418,22 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天又刷了一道关于链表的，本来打算接着前面一篇关于链表的写，但是想想还是再起一篇。</p>
-<a id="more"></a>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>输入一个链表，反转链表后，输出新链表的表头。</p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>最开始我以为输出表头的值，直接找到链表结尾的元素输出就好了，后来发现是输出表头。这就要从新思考了。需要反转链表，比如我们现在的链表为1-&gt;3-&gt;5-&gt;8 我们要反转成8-&gt;5-&gt;3-&gt;1</p>
-<p>也就是说之前1的下一个节点是3，要锋、改成下一个节点是null<br>3的下一个节点是5，改成下一个节点是1.</p>
-<p>这里我们遍历链表，listNode.next的节点先保存起来，然后将listNode.next的指向改成pre.</p>
-<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public ListNode ReverseList(ListNode head) &#123;</span><br><span class="line">        if(head&#x3D;&#x3D;null)&#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode listNode&#x3D;head;</span><br><span class="line">        ListNode pre&#x3D;null;</span><br><span class="line">        while(listNode!&#x3D;null)&#123;</span><br><span class="line">            ListNode next&#x3D;listNode.next;</span><br><span class="line">            listNode.next&#x3D;pre;</span><br><span class="line"></span><br><span class="line">            pre&#x3D;listNode;</span><br><span class="line">            listNode&#x3D;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return pre;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>接着来刷一道简单的算法题</p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>LL今天心情特别好,因为他去买了一副扑克牌,发现里面居然有2个大王,2个小王(一副牌原本是54张^_^)…他随机从中抽出了5张牌,想测测自己的手气,看看能不能抽到顺子,如果抽到的话,他决定去买体育彩票,嘿嘿！！“红心A,黑桃3,小王,大王,方片5”,“Oh My God!”不是顺子…..LL不高兴了,他想了想,决定大\小 王可以看成任何数字,并且A看作1,J为11,Q为12,K为13。上面的5张牌就可以变成“1,2,3,4,5”(大小王分别看作2和4),“So Lucky!”。LL决定去买体育彩票啦。 现在,要求你使用这幅牌模拟上面的过程,然后告诉我们LL的运气如何， 如果牌能组成顺子就输出true，否则就输出false。为了方便起见,你可以认为大小王是0。</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>就是一个数组，0表示大小王，可以当癞子，其他的最小是1，最大是13，求给出的这个数组能否组成顺子。</p>
+<p>我们仔细想想一个正常的顺子，比如6，7，8，9，10.<br>那最大值和最小值差为4，并且不能重复。所以我们应该得出两个结论。<br>1，最大值和最小值相差小于等于4，为什么会小于4呢，因为有癞子0导致的。<br>2.除了癞子0以外，其他的数字不能重复。</p>
+<p>所以根据上面的条件我们就可以写出算法了。<br>求出最小值，最大值。</p>
+<p>重复数字怎么判断呢？<br>先判断是否为0，不为0，将这个数字作为脚标存到另一个数组中，并计数加1，从而判断是否重复。</p>
+<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public boolean isContinuous(int [] numbers) &#123;</span><br><span class="line">        int count[]&#x3D;new int[14];</span><br><span class="line">        if(numbers&#x3D;&#x3D;null|| numbers.length&lt;1)&#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        int min&#x3D;14;</span><br><span class="line">        int max&#x3D;0;</span><br><span class="line">        for(int i&#x3D;0;i&lt;numbers.length;i++)&#123;</span><br><span class="line">            if(numbers[i]&#x3D;&#x3D;0)&#123;</span><br><span class="line">                continue;</span><br><span class="line">            &#125;else if(count[numbers[i]]&gt;0) &#123;</span><br><span class="line">           &#x2F;&#x2F;如果存在重复的数字就返回false;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;else if(numbers[i]&lt;min)&#123;</span><br><span class="line">                    min&#x3D;numbers[i];</span><br><span class="line">            &#125;else if(numbers[i]&gt;max)&#123;</span><br><span class="line">                    max&#x3D;numbers[i];</span><br><span class="line">            &#125;</span><br><span class="line">            count[numbers[i]]++;</span><br><span class="line">        &#125;</span><br><span class="line">        if(max-min&lt;5)&#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<p>可以看到代码很简短，就是遍历listNode。将listNode.next 先保存到next 中，因为接着遍历会用到。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ListNode next&#x3D;listNode.next;</span><br></pre></td></tr></table></figure>
-<p>然后listNode.next。<br>然后将当前节点保存到pre 中，用于下个节点的前节点。<br>最后将 next赋给listNode，用于执行下个节点。</p>
-<h1 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public ListNode ReverseList(ListNode head) &#123;</span><br><span class="line">        if(head&#x3D;&#x3D;null)&#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode listNode&#x3D;head;</span><br><span class="line">        ListNode pre&#x3D;null;</span><br><span class="line">        while(listNode!&#x3D;null)&#123;</span><br><span class="line">            ListNode next&#x3D;listNode.next;</span><br><span class="line">            listNode.next&#x3D;pre;</span><br><span class="line"></span><br><span class="line">            pre&#x3D;listNode;</span><br><span class="line">            listNode&#x3D;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return pre;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        ListNode listNode&#x3D;new ListNode(1);</span><br><span class="line">        listNode.next&#x3D;new ListNode(3);</span><br><span class="line">        listNode.next.next&#x3D;new ListNode(5);</span><br><span class="line">        listNode.next.next.next&#x3D;new ListNode(8);</span><br><span class="line"></span><br><span class="line">        Solution solution&#x3D;new Solution();</span><br><span class="line">        ListNode dd&#x3D;solution.ReverseList(listNode);</span><br><span class="line">        System.out.println(dd.val);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>!(<a href="https://img-blog.csdnimg.cn/20200203183118507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">https://img-blog.csdnimg.cn/20200203183118507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70</a>)<br>!(<a href="https://img-blog.csdnimg.cn/20200203183204606.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">https://img-blog.csdnimg.cn/20200203183204606.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70</a>)</p>
-<h1 id="合并两个排序的链表"><a href="#合并两个排序的链表" class="headerlink" title="合并两个排序的链表"></a>合并两个排序的链表</h1><p>输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。</p>
-<h2 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h2><p>把两个有序的链表整合成一个有序的列表。<br>思路其实也很简单。比如我们两个链表为：<br>list1:1-&gt;3-&gt;5-&gt;8<br>list2: 2-&gt;4-&gt;6-&gt;7<br>先比较1和2<br>1小于2，则list1.next<br>在比较3和2<br>3大于2，则list2.next<br>直到整个链表都是有序的。</p>
-<h1 id="解法1"><a href="#解法1" class="headerlink" title="解法1"></a>解法1</h1><p>使用递归，我们返回的是是一个有序的链表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public ListNode Merge(ListNode list1, ListNode list2) &#123;</span><br><span class="line"></span><br><span class="line">        if(list1&#x3D;&#x3D;null)&#123;</span><br><span class="line">            return list2;</span><br><span class="line">        &#125;else if(list2&#x3D;&#x3D;null)&#123;</span><br><span class="line">            return list1;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if(list1.val&lt;list2.val)&#123;</span><br><span class="line">            list1.next&#x3D;Merge(list1.next,list2);</span><br><span class="line">            return list1;</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            list2.next&#x3D;Merge(list1,list2.next);</span><br><span class="line">            return list2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="解法2"><a href="#解法2" class="headerlink" title="解法2"></a>解法2</h1><p>使用循环</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public ListNode Merge2(ListNode list1, ListNode list2) &#123;</span><br><span class="line"></span><br><span class="line">        if(list1&#x3D;&#x3D;null)&#123;</span><br><span class="line">            return list2;</span><br><span class="line">        &#125;else if(list2&#x3D;&#x3D;null)&#123;</span><br><span class="line">            return list1;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode head&#x3D;new ListNode(-1);</span><br><span class="line">        ListNode root&#x3D;head;</span><br><span class="line">        while(list1!&#x3D;null&amp;&amp;list2!&#x3D;null)&#123;</span><br><span class="line">            if(list1.val&lt;list2.val)&#123;</span><br><span class="line">                head.next&#x3D;list1;</span><br><span class="line">                head&#x3D;list1;</span><br><span class="line">                list1&#x3D;list1.next;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                head.next&#x3D;list2;</span><br><span class="line">                head&#x3D;list2;</span><br><span class="line">                list2&#x3D;list2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if(list1!&#x3D;null)&#123;</span><br><span class="line">            head.next&#x3D;list1;</span><br><span class="line">        &#125;</span><br><span class="line">        if(list2!&#x3D;null)&#123;</span><br><span class="line">            head.next&#x3D;list2;</span><br><span class="line">        &#125;</span><br><span class="line">        return root.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="主方法"><a href="#主方法" class="headerlink" title="主方法"></a>主方法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        ListNode list1&#x3D;new ListNode(1);</span><br><span class="line">        list1.next&#x3D;new ListNode(3);</span><br><span class="line">        list1.next.next&#x3D;new ListNode(5);</span><br><span class="line">        list1.next.next.next&#x3D;new ListNode(8);</span><br><span class="line"></span><br><span class="line">        ListNode list2&#x3D;new ListNode(2);</span><br><span class="line">        list2.next&#x3D;new ListNode(4);</span><br><span class="line">        list2.next.next&#x3D;new ListNode(6);</span><br><span class="line">        list2.next.next.next&#x3D;new ListNode(7);</span><br><span class="line"></span><br><span class="line">        Solution solution&#x3D;new Solution();</span><br><span class="line">        ListNode dd&#x3D;solution.Merge2(list1,list2);</span><br><span class="line">        System.out.println(dd.val);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>main方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        Solution solution&#x3D;new Solution();</span><br><span class="line">        int array[]&#x3D;&#123;1,5,3,3,4,&#125;;</span><br><span class="line">        System.out.println(solution.isContinuous(array));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200213145742670.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020021314504021.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="番外"><a href="#番外" class="headerlink" title="番外"></a>番外</h1><p>测试的时候发现牛客上的这道题测试用例不全。比如我最开始这样写的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">for(int i&#x3D;0;i&lt;numbers.length;i++)&#123;</span><br><span class="line">            if(numbers[i]&#x3D;&#x3D;0)&#123;</span><br><span class="line">                continue;</span><br><span class="line">            &#125;else if(numbers[i]&#x3D;&#x3D;min||numbers[i]&#x3D;&#x3D; max) &#123;</span><br><span class="line">             &#x2F;&#x2F;如果存在重复的数字就返回false;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;else if(numbers[i]&lt;min)&#123;</span><br><span class="line">                    min&#x3D;numbers[i];</span><br><span class="line">            &#125;else if(numbers[i]&gt;max)&#123;</span><br><span class="line">                    max&#x3D;numbers[i];</span><br><span class="line">            &#125;</span><br><span class="line">            count[numbers[i]]++;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到我通过</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(numbers[i]&#x3D;&#x3D;min||numbers[i]&#x3D;&#x3D; max</span><br></pre></td></tr></table></figure>
+<p>来判断是否存在重复的数字，其实这是不正确的，比如我是上面的测试用例1,5,3,3,4就不满足上面的要求。<br><img src="https://img-blog.csdnimg.cn/20200213145701645.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>可以看到返回的是true,实际应该是false才对，算法不正确的，但是提交到牛客上竟然通过了，有点无语，也不敢问哈哈<br><img src="https://img-blog.csdnimg.cn/20200213150031632.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
                 
             </div>
@@ -467,7 +460,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://cracker.wang/2021/06/11/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">http://cracker.wang/2021/06/11/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</a>
+                    <a href="http://cracker.wang/2021/07/09/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%89%91%E5%85%8B%E7%89%8C%E9%A1%BA%E5%AD%90/">http://cracker.wang/2021/07/09/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%89%91%E5%85%8B%E7%89%8C%E9%A1%BA%E5%AD%90/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -684,24 +677,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/06/12/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%B3%BB%E5%88%97/">
+                <a href="/2021/07/09/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="《剑指offer》之斐波那契数列系列">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="《剑指offer》之顺时针打印矩阵">
                         
-                        <span class="card-title">《剑指offer》之斐波那契数列系列</span>
+                        <span class="card-title">《剑指offer》之顺时针打印矩阵</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言斐波那契数列 算是比较常见的算法题了。f(1)=1;f(2)=1;f(3)=2;…
+                            
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-12
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-09
                         </span>
                         <span class="publish-author">
                             
@@ -737,31 +730,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/10/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/">
+                <a href="/2021/06/28/%E4%B8%80%E3%80%81docker%20%E5%85%A5%E5%9D%91(win10%E5%92%8CUbuntu%20%E5%AE%89%E8%A3%85)/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="《剑指offer》之二叉树的深度">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="一、docker 入坑(win10和Ubuntu 安装)">
                         
-                        <span class="card-title">《剑指offer》之二叉树的深度</span>
+                        <span class="card-title">一、docker 入坑(win10和Ubuntu 安装)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言我们今天接着来看一道关于二叉树的算法题，关于二叉树的深度。
+                            前言终究还是绕不过去了，要学的知识真的是太多了，好在我们还有时间，docker 之前只闻其声，不曾真正的接触过，现在docker 越来越火，很多公司也都开始使用了。所以对于我们程序员而言，又得修炼一项必备技能了。所以让我们勇敢的踏出第一步，
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/docker/" class="post-category">
+                                    docker
                                 </a>
                             
                             
@@ -771,12 +764,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B/">
-                        <span class="chip bg-color">《剑指offer》</span>
+                    <a href="/tags/docker/">
+                        <span class="chip bg-color">docker</span>
                     </a>
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="《剑指offer》之二叉树的深度, 繁花似锦&#39;Blogs">
+    <meta name="keywords" content="《剑指offer》之斐波那契数列系列, 繁花似锦&#39;Blogs">
     <meta name="description" content="民国三年等不到一场雨，此生等不到表哥一句我带你">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>《剑指offer》之二叉树的深度 | 繁花似锦&#39;Blogs</title>
+    <title>《剑指offer》之斐波那契数列系列 | 繁花似锦&#39;Blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -247,12 +247,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">《剑指offer》之二叉树的深度</h1>
+                    <h1 class="description center-align post-title">《剑指offer》之斐波那契数列系列</h1>
                 </div>
             </div>
         </div>
@@ -397,7 +397,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-10
+                    2021-07-09
                 </div>
                 
 
@@ -418,15 +418,28 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们今天接着来看一道关于二叉树的算法题，关于二叉树的深度。</p>
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>斐波那契数列 算是比较常见的算法题了。<br>f(1)=1;<br>f(2)=1;<br>f(3)=2;<br>…</p>
 <a id="more"></a>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。</p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>求该树的深度，主要就是看最长路径。比如下图的深度为5，最长的路径为34，99，35，64，77<br><img src="https://img-blog.csdnimg.cn/20200210190247954.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>那应该怎么做了？这里用递归，如果当前节点没有左右节点，就返回当前节点，如果有左右节点，就返回左右节点的，比较左节点和右节点的深度，谁的深度大就返回那个。这样就可以获得树的最大深度啦。</p>
-<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public int TreeDepth(TreeNode root) &#123;</span><br><span class="line">        if(root&#x3D;&#x3D;null)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        int left&#x3D;TreeDepth(root.left);</span><br><span class="line">        int right&#x3D;TreeDepth(root.right);</span><br><span class="line">        if(left&gt;right)&#123;</span><br><span class="line">            return left+1;</span><br><span class="line">        &#125;</span><br><span class="line">        return right+1;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>上面主要注意的是left+1 和right+1;为什么要加一呢，因为我们递归的出口是当前节点为null ,返回0，为1个节点的话返回1.</p>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>测试main方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        TreeNode root &#x3D;new TreeNode(34);</span><br><span class="line">        root.left&#x3D;new TreeNode(23);</span><br><span class="line">        root.right&#x3D;new TreeNode(99);</span><br><span class="line">        root.left.left&#x3D;new TreeNode(1);</span><br><span class="line">        root.left.right&#x3D;new TreeNode(27);</span><br><span class="line">        root.right.left&#x3D;new TreeNode(35);</span><br><span class="line">        root.right.left.right&#x3D;new TreeNode(64);</span><br><span class="line">        root.right.left.right.right&#x3D;new TreeNode(77);</span><br><span class="line">        TreeOperation.show(root);</span><br><span class="line">        Solution solution&#x3D; new Solution();</span><br><span class="line">        System.out.println(solution.TreeDepth(root));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>!(<a href="https://img-blog.csdnimg.cn/20200210192011852.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">https://img-blog.csdnimg.cn/20200210192011852.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70</a>)<br>!(<a href="https://img-blog.csdnimg.cn/20200210192140598.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">https://img-blog.csdnimg.cn/20200210192140598.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70</a>)</p>
+<p>f(n)=f(n-1)+f(n-2);<br>一般采用递归的思想。今天做了几个关于斐波那契数列，都记录下来。</p>
+<h1 id="题目一"><a href="#题目一" class="headerlink" title="题目一"></a>题目一</h1><p>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。<br>n&lt;=39</p>
+<p>这个是最原始的，就是上面我说的斐波那契数列。代码实现如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public int Fibonacci(int n) &#123;</span><br><span class="line">        if(n&lt;0)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;else if(n&#x3D;&#x3D;1 || n&#x3D;&#x3D;2)&#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">        return Fibonacci(n-1)+Fibonacci(n-2);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到非常简单，但是递归算法虽然方便，但是耗时比较长，我们也可以用循环实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public int Fibonacci(int n) &#123;</span><br><span class="line"></span><br><span class="line">        if(n&lt;0)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;else if(n&#x3D;&#x3D;1 || n&#x3D;&#x3D;2)&#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">        int a&#x3D;1;</span><br><span class="line">        int b&#x3D;1;</span><br><span class="line">        int c&#x3D;0;</span><br><span class="line">        for(int i&#x3D;3;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">            c&#x3D;a+b;</span><br><span class="line">            a&#x3D;b;</span><br><span class="line">            b&#x3D;c;</span><br><span class="line">        &#125;</span><br><span class="line">        return c;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>用循环实现的话，减少了时间损耗，增加了空间成本。所以具体情况具体分析还得。</p>
+<h1 id="题目二"><a href="#题目二" class="headerlink" title="题目二"></a>题目二</h1><p>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。</p>
+<p>这是一道斐波那契数列，我们读题可以发现。<br>只有一个台阶，一种跳法。<br>f(1)=1;<br>只要两个台阶，两种跳法。<br>f(2)=2；</p>
+<p>只要三个台阶，从第一个台阶跳2步上来，或者从第二个台阶跳一步上来。<br>f(3)=f(1)+f(2)</p>
+<p>n 个台阶，从n-1台阶跳一步上来，或者从n-2 台阶跳2步上来。<br>f(n)=f(n-1)+f(n-2);<br>所以这就是一道典型的斐波那契数列。代码和上面一样。</p>
+<h1 id="题目三"><a href="#题目三" class="headerlink" title="题目三"></a>题目三</h1><p>一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
+<p>在上面的基础上，可以跳n个台阶。<br>f(n)=f(n-1)+f(n-2)+f(n-3)+……+f(3)+f(2)+f(1);<br>f(n-1)=f(n-2)+f(n-3)+……+f(3)+f(2)+f(1);</p>
+<p>所以上试减下试。<br>f(n)-f(n-1)=f(n-1)+f(n-2)+f(n-3)+……+f(3)+f(2)+f(1)-[f(n-2)+f(n-3)+……+f(3)+f(2)+f(1)];<br> 所以：<br> f(n)-f(n-1)=f(n-1)；<br> f(n)=2f(n-1);n&gt;1<br>所以代码为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public int JumpFloorII(int target) &#123;</span><br><span class="line">        if(target&lt;1) return 0;</span><br><span class="line">    	else if (target&#x3D;&#x3D;1) return 1;</span><br><span class="line">        else return 2*JumpFloorII(target-1);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="题目四"><a href="#题目四" class="headerlink" title="题目四"></a>题目四</h1><p>我们可以用2<em>1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2</em>1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？</p>
+<p>这道题目相对前面几道，比较难理解是斐波那契数列。<br>我们来分析一下。<br>当n=1 时，只有一种情况。<br>f(1)=1;<br>当n=2时，2个2<em>1的小矩形，拼成2</em>2的大矩形。有2种方法。<br>f(2)=2;<br>当n=3时，3个2<em>1的小矩形，拼成2</em>3的大矩形。<br>这个时候我们就要想下，2<em>3的矩形是一个2</em>1 和一个2<em>2的矩形组成的。<br>当n=5时，5个2</em>1的小矩形，拼成2<em>5的大矩形。<br>这个时候我们就要想下，2</em>5的矩形是一个2<em>4的矩形加一个2</em>1的矩形组成，或者一个2<em>3的矩形加一个2</em>2 的矩形组成。</p>
+<p>所以可以推测出还是一个斐波那契数列。<br>f(n)=f(n-1)+f(n-2);</p>
+<p>代码和最开始一样，就不重复啦。</p>
 
                 
             </div>
@@ -453,7 +466,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://cracker.wang/2021/06/10/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/">http://cracker.wang/2021/06/10/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/</a>
+                    <a href="http://cracker.wang/2021/07/09/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%B3%BB%E5%88%97/">http://cracker.wang/2021/07/09/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%B3%BB%E5%88%97/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -666,29 +679,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/06/11/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">
+                <a href="/2021/07/09/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%B3%BB%E5%88%97/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="《剑指offer》之反转链表">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="《剑指offer》之斐波那契数列系列">
                         
-                        <span class="card-title">《剑指offer》之反转链表</span>
+                        <span class="card-title">《剑指offer》之斐波那契数列系列</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言今天又刷了一道关于链表的，本来打算接着前面一篇关于链表的写，但是想想还是再起一篇。
+                            前言斐波那契数列 算是比较常见的算法题了。f(1)=1;f(2)=1;f(3)=2;…
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -701,6 +715,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -723,24 +738,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/10/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/">
+                <a href="/2021/07/09/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="《剑指offer》之栈的压入、弹出序列">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="《剑指offer》之反转链表">
                         
-                        <span class="card-title">《剑指offer》之栈的压入、弹出序列</span>
+                        <span class="card-title">《剑指offer》之反转链表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言我们关于栈的题目，这两天做的还是挺多的，无非就是压栈出栈。
+                            前言今天又刷了一道关于链表的，本来打算接着前面一篇关于链表的写，但是想想还是再起一篇。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-09
                             </span>
                         <span class="publish-author">
                             

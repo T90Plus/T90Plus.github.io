@@ -429,16 +429,16 @@
                 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先来说说问题吧，我们的项目在测试环境上搭建好了，也就是在内网上可以正常运行，但是呢，局方的人想要看一下效果先，那问题就来了，不在同一个局域网，他们访问不了我们的内网啊，现在又想看。这咋整。所以就有了这篇文章。<br>这三个软件都差不多，都有一个免费的，我自己都试了一下，window和Linux的都可以，做演示的话问题不大。刚刚好满足要求。</p>
 <h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p>ngrok:<a href="https://ngrok.com/" target="_blank" rel="noopener">https://ngrok.com/</a><br>ngrokc:<a href="http://www.ngrok.cc/" target="_blank" rel="noopener">http://www.ngrok.cc/</a><br>cpolar:<a href="https://www.cpolar.com/" target="_blank" rel="noopener">https://www.cpolar.com/</a></p>
 <p>大家对着官网教程来就可以了，无非都是注册会员，领取那个免费的authtoken.然后下载客户端，设置端口，启动项目，用域名进行访问。</p>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>1、ngrok 和 cpolar 基本用法都是一致的，都是生成一个authtoken ,然后设置一个ip和端口，会随机的生成一个http的域名和一个https 的域名随机访问。<br>!(<a href="https://img-blog.csdnimg.cn/20190905185742950.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">https://img-blog.csdnimg.cn/20190905185742950.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70</a>)<br>2、ngrokcc 是国内的一个网站，没有authtoken ,但是有隧道，需要你在控制台建好隧道，然后在客户端连接隧道id 就好了<br>!(<a href="https://img-blog.csdnimg.cn/20190905190106504.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">https://img-blog.csdnimg.cn/20190905190106504.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70</a>)</p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>1、ngrok 和 cpolar 基本用法都是一致的，都是生成一个authtoken ,然后设置一个ip和端口，会随机的生成一个http的域名和一个https 的域名随机访问。<br><img src="https://img-blog.csdnimg.cn/20190905185742950.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>2、ngrokcc 是国内的一个网站，没有authtoken ,但是有隧道，需要你在控制台建好隧道，然后在客户端连接隧道id 就好了<br><img src="https://img-blog.csdnimg.cn/20190905190106504.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;sunny clientid 隧道id</span><br></pre></td></tr></table></figure>
-<p>!(<a href="https://img-blog.csdnimg.cn/20190905190543757.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">https://img-blog.csdnimg.cn/20190905190543757.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70</a>)</p>
+<p><img src="https://img-blog.csdnimg.cn/20190905190543757.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>使用起来还是比较简单，能满足我们将项目搭建在本地，用公网访问演示。</p>
 <h1 id="番外"><a href="#番外" class="headerlink" title="番外"></a>番外</h1><p>这几个是三个软件都是利用Nginx反向代理实现的。但是免费的只有一个隧道或者一个端口，这个时候我们可以在自己本地再搭建一个Nginx做虚拟主机，这样就可以自由飞翔了吧哈哈</p>
 <h1 id="再番外"><a href="#再番外" class="headerlink" title="再番外"></a>再番外</h1><p>因为看了一下官方文档，发现不仅可以代理一个端口网站，还能代理tcp协议。</p>
 <p>我来举一个例子。我有两台电脑，一台装的是win ,一台装的是Ubuntu，一般我都是把Ubuntu当做服务器用。两台电脑在同一个局域网直接用xhell 的ssh 连接起来当然很方便啦。但是我有时候需要把win 带到其他地方，那做服务器的那台电脑就不能访问啦，<br>所以我参考一下官网的，可以在用外网访问这台服务器啦。<br>操作也很简单，我三个也都测试了一下，用的是cpolar 的，感觉比ngrok 要稳定些。<br>1、在我们Ubuntu服务器上安装好cpolar客户端，然后认证tocken 这些和之前是一样哒。<br>2、</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cpolar tcp 22</span><br></pre></td></tr></table></figure>
-<p>就这么简单。<br>!(<a href="https://img-blog.csdnimg.cn/20190906141633105.png" target="_blank" rel="noopener">https://img-blog.csdnimg.cn/20190906141633105.png</a>)</p>
-<p>然后在主机和端口号填上对应的就好了，就是这么简单。<br>!(<a href="https://img-blog.csdnimg.cn/20190906141742822.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">https://img-blog.csdnimg.cn/20190906141742822.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70</a>)</p>
+<p>就这么简单。<br><img src="https://img-blog.csdnimg.cn/20190906141633105.png" alt="在这里插入图片描述"></p>
+<p>然后在主机和端口号填上对应的就好了，就是这么简单。<br><img src="https://img-blog.csdnimg.cn/20190906141742822.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <p>这样之后，就算两台电脑不在同一个局域网，也可以直接访问了，很实用。</p>
 <p>后续加油♡</p>
 
@@ -692,31 +692,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/06/07/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%89%91%E5%85%8B%E7%89%8C%E9%A1%BA%E5%AD%90/">
+                <a href="/2021/06/28/%E4%B8%80%E3%80%81docker%20%E5%85%A5%E5%9D%91(win10%E5%92%8CUbuntu%20%E5%AE%89%E8%A3%85)/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="《剑指offer》之扑克牌顺子">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="一、docker 入坑(win10和Ubuntu 安装)">
                         
-                        <span class="card-title">《剑指offer》之扑克牌顺子</span>
+                        <span class="card-title">一、docker 入坑(win10和Ubuntu 安装)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            前言终究还是绕不过去了，要学的知识真的是太多了，好在我们还有时间，docker 之前只闻其声，不曾真正的接触过，现在docker 越来越火，很多公司也都开始使用了。所以对于我们程序员而言，又得修炼一项必备技能了。所以让我们勇敢的踏出第一步，
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-28
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/docker/" class="post-category">
+                                    docker
                                 </a>
                             
                             
@@ -726,12 +726,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B/">
-                        <span class="chip bg-color">《剑指offer》</span>
+                    <a href="/tags/docker/">
+                        <span class="chip bg-color">docker</span>
                     </a>
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>

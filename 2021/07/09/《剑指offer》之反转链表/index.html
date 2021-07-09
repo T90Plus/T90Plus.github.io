@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="调第三方厂家接口实现文件文件上传httpclient, 繁花似锦&#39;Blogs">
+    <meta name="keywords" content="《剑指offer》之反转链表, 繁花似锦&#39;Blogs">
     <meta name="description" content="民国三年等不到一场雨，此生等不到表哥一句我带你">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>调第三方厂家接口实现文件文件上传httpclient | 繁花似锦&#39;Blogs</title>
+    <title>《剑指offer》之反转链表 | 繁花似锦&#39;Blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -247,12 +247,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">调第三方厂家接口实现文件文件上传httpclient</h1>
+                    <h1 class="description center-align post-title">《剑指offer》之反转链表</h1>
                 </div>
             </div>
         </div>
@@ -368,20 +368,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/java/">
-                                <span class="chip bg-color">java</span>
+                            <a href="/tags/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B/">
+                                <span class="chip bg-color">《剑指offer》</span>
                             </a>
                         
-                            <a href="/tags/springboot/">
-                                <span class="chip bg-color">springboot</span>
-                            </a>
-                        
-                            <a href="/tags/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/">
-                                <span class="chip bg-color">上传文件</span>
-                            </a>
-                        
-                            <a href="/tags/httpclient/">
-                                <span class="chip bg-color">httpclient</span>
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
                             </a>
                         
                     </div>
@@ -392,8 +384,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/springBoot%E7%95%AA%E5%A4%96%E7%AF%87/" class="post-category">
-                                springBoot番外篇
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
                     </div>
@@ -405,7 +397,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-05
+                    2021-07-09
                 </div>
                 
 
@@ -426,15 +418,29 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这种情况算是很少见的，前端上传文件到服务端，服务端接收文件，再调第三方接口，将文件存到第三方服务器。</p>
-<p>从客户端接收文件的就不说了，比较常见，就记录下调第三方接口带参数。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>url为路径<br>jsonObject为常规的请求参数<br>token 为鉴权<br>file 为文件。大伙根据自己的需求进行修改。<br>核心代码为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">MultipartEntityBuilder reqEntity &#x3D; MultipartEntityBuilder.create();</span><br><span class="line">reqEntity.addBinaryBody(&quot;file&quot;, new FileInputStream(file), ContentType.DEFAULT_BINARY, file.getName());</span><br><span class="line">            Iterator iter &#x3D; jsonObject.entrySet().iterator();</span><br><span class="line"></span><br><span class="line">            while (iter.hasNext()) &#123;</span><br><span class="line">                Map.Entry entry &#x3D; (Map.Entry) iter.next();</span><br><span class="line">                System.out.println(entry.getKey().toString());</span><br><span class="line">                System.out.println(entry.getValue().toString());</span><br><span class="line"></span><br><span class="line">                StringBody value &#x3D; new StringBody(entry.getValue().toString(), ContentType.create(&quot;text&#x2F;plain&quot;, Consts.UTF_8));</span><br><span class="line">                reqEntity.addPart(entry.getKey().toString(),value);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            HttpEntity httpEntity &#x3D; reqEntity.build();</span><br><span class="line">            HttpPost httppost &#x3D; new HttpPost(urlBuilder.toString());</span><br><span class="line">            httppost.setEntity(httpEntity);</span><br></pre></td></tr></table></figure>
-<p>主要是使用MultipartEntityBuilder 将文件通过body 进行传输。<br>完整方法代码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">public static String sendPost(String url, JSONObject jsonObject, String token,File file) &#123;</span><br><span class="line">        StringBuilder urlBuilder &#x3D; new StringBuilder(baseURLPath);</span><br><span class="line">        urlBuilder.append(url);</span><br><span class="line">        log.info(&quot;URL:&quot; + url);</span><br><span class="line">        log.info(&quot;Parm:&quot; + jsonObject);</span><br><span class="line">        FileBody fileBody&#x3D;new FileBody(file);</span><br><span class="line">        MultipartEntityBuilder reqEntity &#x3D; MultipartEntityBuilder.create();</span><br><span class="line"></span><br><span class="line">        try &#123;</span><br><span class="line">            reqEntity.addBinaryBody(&quot;file&quot;, new FileInputStream(file), ContentType.DEFAULT_BINARY, file.getName());</span><br><span class="line">            Iterator iter &#x3D; jsonObject.entrySet().iterator();</span><br><span class="line"></span><br><span class="line">            while (iter.hasNext()) &#123;</span><br><span class="line">                Map.Entry entry &#x3D; (Map.Entry) iter.next();</span><br><span class="line">                System.out.println(entry.getKey().toString());</span><br><span class="line">                System.out.println(entry.getValue().toString());</span><br><span class="line"></span><br><span class="line">                StringBody value &#x3D; new StringBody(entry.getValue().toString(), ContentType.create(&quot;text&#x2F;plain&quot;, Consts.UTF_8));</span><br><span class="line">                reqEntity.addPart(entry.getKey().toString(),value);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            HttpEntity httpEntity &#x3D; reqEntity.build();</span><br><span class="line">            HttpPost httppost &#x3D; new HttpPost(urlBuilder.toString());</span><br><span class="line">            httppost.setEntity(httpEntity);</span><br><span class="line">            setHttpHeader(httppost, token);</span><br><span class="line"></span><br><span class="line">            RequestConfig config &#x3D; RequestConfig.custom()</span><br><span class="line">					.setConnectTimeout(1000)</span><br><span class="line">					.setConnectionRequestTimeout(1000)</span><br><span class="line">					.setSocketTimeout(10 *1000)</span><br><span class="line">					.build();</span><br><span class="line">            &#x2F;&#x2F;数据传输的超时时间</span><br><span class="line">            httppost.setConfig(config);</span><br><span class="line">            String result &#x3D; getPostResult(httppost);</span><br><span class="line">            log.info(result);</span><br><span class="line">            return result;</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            log.error(e);</span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">private static void setHttpHeader(HttpPost httppost, String token) &#123;</span><br><span class="line">		httppost.setHeader(&quot;Authorization&quot;, &quot;Bearer &quot; + token);</span><br><span class="line">	&#125;</span><br><span class="line">&#x2F;**</span><br><span class="line">	 * 获取post请求返回结果</span><br><span class="line">	 * </span><br><span class="line">	 * @param httppost</span><br><span class="line">	 * @return</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	private static String getPostResult(HttpPost httppost) &#123;</span><br><span class="line">		String result &#x3D; null;</span><br><span class="line">		try (CloseableHttpResponse response &#x3D; httpclient.execute(httppost);) &#123;</span><br><span class="line">			HttpEntity entity &#x3D; response.getEntity();</span><br><span class="line">			result &#x3D; EntityUtils.toString(entity);</span><br><span class="line">			if (result.contains(&quot;Invalid token&quot;)) &#123;</span><br><span class="line">				result &#x3D; &quot;Token 过期，请重新登录&quot;;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			log.error(e.toString());</span><br><span class="line">			result &#x3D; &quot;HTTP请求异常,请重试&quot;;</span><br><span class="line">		&#125;</span><br><span class="line">		return result;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天又刷了一道关于链表的，本来打算接着前面一篇关于链表的写，但是想想还是再起一篇。</p>
+<a id="more"></a>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>输入一个链表，反转链表后，输出新链表的表头。</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>最开始我以为输出表头的值，直接找到链表结尾的元素输出就好了，后来发现是输出表头。这就要从新思考了。需要反转链表，比如我们现在的链表为1-&gt;3-&gt;5-&gt;8 我们要反转成8-&gt;5-&gt;3-&gt;1</p>
+<p>也就是说之前1的下一个节点是3，要锋、改成下一个节点是null<br>3的下一个节点是5，改成下一个节点是1.</p>
+<p>这里我们遍历链表，listNode.next的节点先保存起来，然后将listNode.next的指向改成pre.</p>
+<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public ListNode ReverseList(ListNode head) &#123;</span><br><span class="line">        if(head&#x3D;&#x3D;null)&#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode listNode&#x3D;head;</span><br><span class="line">        ListNode pre&#x3D;null;</span><br><span class="line">        while(listNode!&#x3D;null)&#123;</span><br><span class="line">            ListNode next&#x3D;listNode.next;</span><br><span class="line">            listNode.next&#x3D;pre;</span><br><span class="line"></span><br><span class="line">            pre&#x3D;listNode;</span><br><span class="line">            listNode&#x3D;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return pre;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<p>使用的是httpclient。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.httpcomponents&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;httpclient&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.5.3&lt;&#x2F;version&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.httpcomponents&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;httpcore-nio&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.4.4&lt;&#x2F;version&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.httpcomponents&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;httpcore&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.4.4&lt;&#x2F;version&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.httpcomponents&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;httpclient-win&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.5.2&lt;&#x2F;version&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.httpcomponents&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;httpclient-cache&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.5.2&lt;&#x2F;version&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.httpcomponents&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;httpasyncclient&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.0-beta3&lt;&#x2F;version&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>可以看到代码很简短，就是遍历listNode。将listNode.next 先保存到next 中，因为接着遍历会用到。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ListNode next&#x3D;listNode.next;</span><br></pre></td></tr></table></figure>
+<p>然后listNode.next。<br>然后将当前节点保存到pre 中，用于下个节点的前节点。<br>最后将 next赋给listNode，用于执行下个节点。</p>
+<h1 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public ListNode ReverseList(ListNode head) &#123;</span><br><span class="line">        if(head&#x3D;&#x3D;null)&#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode listNode&#x3D;head;</span><br><span class="line">        ListNode pre&#x3D;null;</span><br><span class="line">        while(listNode!&#x3D;null)&#123;</span><br><span class="line">            ListNode next&#x3D;listNode.next;</span><br><span class="line">            listNode.next&#x3D;pre;</span><br><span class="line"></span><br><span class="line">            pre&#x3D;listNode;</span><br><span class="line">            listNode&#x3D;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return pre;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        ListNode listNode&#x3D;new ListNode(1);</span><br><span class="line">        listNode.next&#x3D;new ListNode(3);</span><br><span class="line">        listNode.next.next&#x3D;new ListNode(5);</span><br><span class="line">        listNode.next.next.next&#x3D;new ListNode(8);</span><br><span class="line"></span><br><span class="line">        Solution solution&#x3D;new Solution();</span><br><span class="line">        ListNode dd&#x3D;solution.ReverseList(listNode);</span><br><span class="line">        System.out.println(dd.val);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p><img src="https://img-blog.csdnimg.cn/20200203183118507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200203183204606.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="合并两个排序的链表"><a href="#合并两个排序的链表" class="headerlink" title="合并两个排序的链表"></a>合并两个排序的链表</h1><p>输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。</p>
+<h2 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h2><p>把两个有序的链表整合成一个有序的列表。<br>思路其实也很简单。比如我们两个链表为：<br>list1:1-&gt;3-&gt;5-&gt;8<br>list2: 2-&gt;4-&gt;6-&gt;7<br>先比较1和2<br>1小于2，则list1.next<br>在比较3和2<br>3大于2，则list2.next<br>直到整个链表都是有序的。</p>
+<h1 id="解法1"><a href="#解法1" class="headerlink" title="解法1"></a>解法1</h1><p>使用递归，我们返回的是是一个有序的链表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public ListNode Merge(ListNode list1, ListNode list2) &#123;</span><br><span class="line"></span><br><span class="line">        if(list1&#x3D;&#x3D;null)&#123;</span><br><span class="line">            return list2;</span><br><span class="line">        &#125;else if(list2&#x3D;&#x3D;null)&#123;</span><br><span class="line">            return list1;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if(list1.val&lt;list2.val)&#123;</span><br><span class="line">            list1.next&#x3D;Merge(list1.next,list2);</span><br><span class="line">            return list1;</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            list2.next&#x3D;Merge(list1,list2.next);</span><br><span class="line">            return list2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="解法2"><a href="#解法2" class="headerlink" title="解法2"></a>解法2</h1><p>使用循环</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public ListNode Merge2(ListNode list1, ListNode list2) &#123;</span><br><span class="line"></span><br><span class="line">        if(list1&#x3D;&#x3D;null)&#123;</span><br><span class="line">            return list2;</span><br><span class="line">        &#125;else if(list2&#x3D;&#x3D;null)&#123;</span><br><span class="line">            return list1;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode head&#x3D;new ListNode(-1);</span><br><span class="line">        ListNode root&#x3D;head;</span><br><span class="line">        while(list1!&#x3D;null&amp;&amp;list2!&#x3D;null)&#123;</span><br><span class="line">            if(list1.val&lt;list2.val)&#123;</span><br><span class="line">                head.next&#x3D;list1;</span><br><span class="line">                head&#x3D;list1;</span><br><span class="line">                list1&#x3D;list1.next;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                head.next&#x3D;list2;</span><br><span class="line">                head&#x3D;list2;</span><br><span class="line">                list2&#x3D;list2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if(list1!&#x3D;null)&#123;</span><br><span class="line">            head.next&#x3D;list1;</span><br><span class="line">        &#125;</span><br><span class="line">        if(list2!&#x3D;null)&#123;</span><br><span class="line">            head.next&#x3D;list2;</span><br><span class="line">        &#125;</span><br><span class="line">        return root.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="主方法"><a href="#主方法" class="headerlink" title="主方法"></a>主方法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        ListNode list1&#x3D;new ListNode(1);</span><br><span class="line">        list1.next&#x3D;new ListNode(3);</span><br><span class="line">        list1.next.next&#x3D;new ListNode(5);</span><br><span class="line">        list1.next.next.next&#x3D;new ListNode(8);</span><br><span class="line"></span><br><span class="line">        ListNode list2&#x3D;new ListNode(2);</span><br><span class="line">        list2.next&#x3D;new ListNode(4);</span><br><span class="line">        list2.next.next&#x3D;new ListNode(6);</span><br><span class="line">        list2.next.next.next&#x3D;new ListNode(7);</span><br><span class="line"></span><br><span class="line">        Solution solution&#x3D;new Solution();</span><br><span class="line">        ListNode dd&#x3D;solution.Merge2(list1,list2);</span><br><span class="line">        System.out.println(dd.val);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -461,7 +467,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://cracker.wang/2021/07/05/%E8%B0%83%E7%AC%AC%E4%B8%89%E6%96%B9%E5%8E%82%E5%AE%B6%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0httpclient/">http://cracker.wang/2021/07/05/%E8%B0%83%E7%AC%AC%E4%B8%89%E6%96%B9%E5%8E%82%E5%AE%B6%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0httpclient/</a>
+                    <a href="http://cracker.wang/2021/07/09/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">http://cracker.wang/2021/07/09/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -499,20 +505,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/java/">
-                                    <span class="chip bg-color">java</span>
+                                <a href="/tags/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B/">
+                                    <span class="chip bg-color">《剑指offer》</span>
                                 </a>
                             
-                                <a href="/tags/springboot/">
-                                    <span class="chip bg-color">springboot</span>
-                                </a>
-                            
-                                <a href="/tags/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/">
-                                    <span class="chip bg-color">上传文件</span>
-                                </a>
-                            
-                                <a href="/tags/httpclient/">
-                                    <span class="chip bg-color">httpclient</span>
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
                                 </a>
                             
                         </div>
@@ -686,24 +684,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/07/05/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/">
+                <a href="/2021/07/09/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%B3%BB%E5%88%97/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="《剑指offer》之顺时针打印矩阵">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="《剑指offer》之斐波那契数列系列">
                         
-                        <span class="card-title">《剑指offer》之顺时针打印矩阵</span>
+                        <span class="card-title">《剑指offer》之斐波那契数列系列</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            前言斐波那契数列 算是比较常见的算法题了。f(1)=1;f(2)=1;f(3)=2;…
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-05
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-09
                         </span>
                         <span class="publish-author">
                             
@@ -739,31 +737,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/28/%E4%B8%80%E3%80%81docker%20%E5%85%A5%E5%9D%91(win10%E5%92%8CUbuntu%20%E5%AE%89%E8%A3%85)/">
+                <a href="/2021/07/09/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="一、docker 入坑(win10和Ubuntu 安装)">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="《剑指offer》之二叉树的深度">
                         
-                        <span class="card-title">一、docker 入坑(win10和Ubuntu 安装)</span>
+                        <span class="card-title">《剑指offer》之二叉树的深度</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言终究还是绕不过去了，要学的知识真的是太多了，好在我们还有时间，docker 之前只闻其声，不曾真正的接触过，现在docker 越来越火，很多公司也都开始使用了。所以对于我们程序员而言，又得修炼一项必备技能了。所以让我们勇敢的踏出第一步，
+                            前言我们今天接着来看一道关于二叉树的算法题，关于二叉树的深度。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/docker/" class="post-category">
-                                    docker
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -773,12 +771,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/docker/">
-                        <span class="chip bg-color">docker</span>
+                    <a href="/tags/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B/">
+                        <span class="chip bg-color">《剑指offer》</span>
                     </a>
                     
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
