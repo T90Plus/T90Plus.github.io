@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="《剑指offer》之顺时针打印矩阵, 繁花似锦&#39;Blogs">
+    <meta name="keywords" content="内网穿透ngrok_ngrokcc_cpolar, 繁花似锦&#39;Blogs">
     <meta name="description" content="民国三年等不到一场雨，此生等不到表哥一句我带你">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>《剑指offer》之顺时针打印矩阵 | 繁花似锦&#39;Blogs</title>
+    <title>内网穿透ngrok_ngrokcc_cpolar | 繁花似锦&#39;Blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -247,12 +247,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">《剑指offer》之顺时针打印矩阵</h1>
+                    <h1 class="description center-align post-title">内网穿透ngrok_ngrokcc_cpolar</h1>
                 </div>
             </div>
         </div>
@@ -368,12 +368,20 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B/">
-                                <span class="chip bg-color">《剑指offer》</span>
+                            <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
+                                <span class="chip bg-color">内网穿透</span>
                             </a>
                         
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
+                            <a href="/tags/ngrok/">
+                                <span class="chip bg-color">ngrok</span>
+                            </a>
+                        
+                            <a href="/tags/ngrokcc/">
+                                <span class="chip bg-color">ngrokcc</span>
+                            </a>
+                        
+                            <a href="/tags/cpolar/">
+                                <span class="chip bg-color">cpolar</span>
                             </a>
                         
                     </div>
@@ -384,8 +392,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/%E5%BB%BA%E7%AB%99%E4%B9%8B%E8%B7%AF/" class="post-category">
+                                建站之路
                             </a>
                         
                     </div>
@@ -397,7 +405,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-05
+                    2019-09-05
                 </div>
                 
 
@@ -418,17 +426,21 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天做一道关于矩阵的题目。思路很简单，就是要考虑全面。</p>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字，例如，如果输入如下4 X 4矩阵： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 则依次打印出数字1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10.</p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>就是顺时针打印，不能重复打印元素。注意四个变量，上下左右。<br><img src="https://img-blog.csdnimg.cn/20200205114303573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><p>我们先直接思路解题，代码不是很简洁，但是思路算是比较清晰，先判断数组是否为空。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">public ArrayList&lt;Integer&gt; printMatrix(int [][] matrix) &#123;</span><br><span class="line">        if(matrix&#x3D;&#x3D;null)&#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">        ArrayList&lt;Integer&gt; list&#x3D;new ArrayList&lt;&gt;();</span><br><span class="line">        &#x2F;&#x2F;设置四个边界值。</span><br><span class="line">        int n&#x3D;matrix.length;</span><br><span class="line">        int m&#x3D;matrix[0].length;</span><br><span class="line">        int x&#x3D;0;</span><br><span class="line">        int y&#x3D;0;</span><br><span class="line">        while(n&gt;x &amp;&amp; m&gt;y)&#123;</span><br><span class="line">            int i&#x3D;x;</span><br><span class="line">            int j&#x3D;y;</span><br><span class="line">            &#x2F;&#x2F;最外层从左往右输出</span><br><span class="line">            while(j&lt;m)&#123;</span><br><span class="line">                list.add(matrix[i][j]);</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            j--;</span><br><span class="line">            i++;</span><br><span class="line">            &#x2F;&#x2F;最外层从上往下输出</span><br><span class="line">            while(i&lt;n)&#123;</span><br><span class="line">                list.add(matrix[i][j]);</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            i--;</span><br><span class="line">            j--;</span><br><span class="line">            &#x2F;&#x2F;最外层从右往左输出，注意排除和前面的从左往右重复</span><br><span class="line">            while(j&gt;&#x3D;y&amp;&amp;n!&#x3D;x+1)&#123;</span><br><span class="line">                list.add(matrix[i][j]);</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            j++;</span><br><span class="line">            i--;</span><br><span class="line">            &#x2F;&#x2F;最外层从下往上输出，注意排除和前面的从上往下重复</span><br><span class="line">            while(i&gt;x &amp;&amp;m!&#x3D;y+1)&#123;</span><br><span class="line">                list.add(matrix[i][j]);</span><br><span class="line">                i--;</span><br><span class="line">            &#125;</span><br><span class="line">            n--;</span><br><span class="line">            m--;</span><br><span class="line">            x++;</span><br><span class="line">            y++;</span><br><span class="line">        &#125;</span><br><span class="line">        return list;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>main 方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        int [][]matrix&#x3D;&#123;&#123;1,2,3,4,5&#125;,&#123;6,7,8,9,10&#125;,&#123;11,12,13,14,15&#125;&#125;;</span><br><span class="line">        &#x2F;&#x2F;int [][]matrix&#x3D;&#123;&#123;1,2,3,4&#125;,&#123;5,6,7,8&#125;,&#123;9,10,11,12&#125;,&#123;13,14,15,16&#125;,&#123;17,18,19,20&#125;&#125;;</span><br><span class="line">        for(int i&#x3D;0;i&lt;matrix.length;i++)&#123;</span><br><span class="line">            for (int j&#x3D;0;j&lt;matrix[0].length;j++)&#123;</span><br><span class="line">                System.out.print(matrix[i][j]+&quot;\t&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">        Solution solution&#x3D;new Solution();</span><br><span class="line">        ArrayList&lt;Integer&gt; list&#x3D;solution.printMatrix(matrix);</span><br><span class="line">        for(int i&#x3D;0;i&lt;list.size();i++)&#123;</span><br><span class="line">            System.out.print(list.get(i)+&quot;\t&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/2020020511575325.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20200205115848197.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先来说说问题吧，我们的项目在测试环境上搭建好了，也就是在内网上可以正常运行，但是呢，局方的人想要看一下效果先，那问题就来了，不在同一个局域网，他们访问不了我们的内网啊，现在又想看。这咋整。所以就有了这篇文章。<br>这三个软件都差不多，都有一个免费的，我自己都试了一下，window和Linux的都可以，做演示的话问题不大。刚刚好满足要求。</p>
+<h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p>ngrok:<a href="https://ngrok.com/" target="_blank" rel="noopener">https://ngrok.com/</a><br>ngrokc:<a href="http://www.ngrok.cc/" target="_blank" rel="noopener">http://www.ngrok.cc/</a><br>cpolar:<a href="https://www.cpolar.com/" target="_blank" rel="noopener">https://www.cpolar.com/</a></p>
+<p>大家对着官网教程来就可以了，无非都是注册会员，领取那个免费的authtoken.然后下载客户端，设置端口，启动项目，用域名进行访问。</p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>1、ngrok 和 cpolar 基本用法都是一致的，都是生成一个authtoken ,然后设置一个ip和端口，会随机的生成一个http的域名和一个https 的域名随机访问。<br><img src="https://img-blog.csdnimg.cn/20190905185742950.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>2、ngrokcc 是国内的一个网站，没有authtoken ,但是有隧道，需要你在控制台建好隧道，然后在客户端连接隧道id 就好了<br><img src="https://img-blog.csdnimg.cn/20190905190106504.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;sunny clientid 隧道id</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20190905190543757.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>使用起来还是比较简单，能满足我们将项目搭建在本地，用公网访问演示。</p>
+<h1 id="番外"><a href="#番外" class="headerlink" title="番外"></a>番外</h1><p>这几个是三个软件都是利用Nginx反向代理实现的。但是免费的只有一个隧道或者一个端口，这个时候我们可以在自己本地再搭建一个Nginx做虚拟主机，这样就可以自由飞翔了吧哈哈</p>
+<h1 id="再番外"><a href="#再番外" class="headerlink" title="再番外"></a>再番外</h1><p>因为看了一下官方文档，发现不仅可以代理一个端口网站，还能代理tcp协议。</p>
+<p>我来举一个例子。我有两台电脑，一台装的是win ,一台装的是Ubuntu，一般我都是把Ubuntu当做服务器用。两台电脑在同一个局域网直接用xhell 的ssh 连接起来当然很方便啦。但是我有时候需要把win 带到其他地方，那做服务器的那台电脑就不能访问啦，<br>所以我参考一下官网的，可以在用外网访问这台服务器啦。<br>操作也很简单，我三个也都测试了一下，用的是cpolar 的，感觉比ngrok 要稳定些。<br>1、在我们Ubuntu服务器上安装好cpolar客户端，然后认证tocken 这些和之前是一样哒。<br>2、</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cpolar tcp 22</span><br></pre></td></tr></table></figure>
+<p>就这么简单。<br><img src="https://img-blog.csdnimg.cn/20190906141633105.png" alt="在这里插入图片描述"></p>
+<p>然后在主机和端口号填上对应的就好了，就是这么简单。<br><img src="https://img-blog.csdnimg.cn/20190906141742822.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>这样之后，就算两台电脑不在同一个局域网，也可以直接访问了，很实用。</p>
+<p>后续加油♡</p>
 
                 
             </div>
@@ -455,7 +467,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://cracker.wang/2021/07/05/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/">http://cracker.wang/2021/07/05/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/</a>
+                    <a href="http://cracker.wang/2019/09/05/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8Fngrok_ngrokcc_cpolar/">http://cracker.wang/2019/09/05/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8Fngrok_ngrokcc_cpolar/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -493,12 +505,20 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B/">
-                                    <span class="chip bg-color">《剑指offer》</span>
+                                <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
+                                    <span class="chip bg-color">内网穿透</span>
                                 </a>
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
+                                <a href="/tags/ngrok/">
+                                    <span class="chip bg-color">ngrok</span>
+                                </a>
+                            
+                                <a href="/tags/ngrokcc/">
+                                    <span class="chip bg-color">ngrokcc</span>
+                                </a>
+                            
+                                <a href="/tags/cpolar/">
+                                    <span class="chip bg-color">cpolar</span>
                                 </a>
                             
                         </div>
@@ -672,13 +692,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/07/09/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E5%AE%9E%E7%8E%B0%E5%B1%9E%E6%80%A7%E7%9A%84%E5%8A%A8%E6%80%81%E6%B3%A8%E5%85%A5/">
+                <a href="/2021/06/07/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%89%91%E5%85%8B%E7%89%8C%E9%A1%BA%E5%AD%90/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="如何优雅实现属性的动态注入">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="《剑指offer》之扑克牌顺子">
                         
-                        <span class="card-title">如何优雅实现属性的动态注入</span>
+                        <span class="card-title">《剑指offer》之扑克牌顺子</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -689,14 +709,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-09
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-07
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -706,16 +726,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
+                    <a href="/tags/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B/">
+                        <span class="chip bg-color">《剑指offer》</span>
                     </a>
                     
-                    <a href="/tags/%E5%8A%A8%E6%80%81%E6%B3%A8%E5%85%A5/">
-                        <span class="chip bg-color">动态注入</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%98%A0%E5%B0%84/">
-                        <span class="chip bg-color">映射</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
@@ -726,16 +742,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2021/07/05/%E8%B0%83%E7%AC%AC%E4%B8%89%E6%96%B9%E5%8E%82%E5%AE%B6%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0httpclient/">
+                <a href="/2019/09/05/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8Fngrok_ngrokcc_cpolar/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="调第三方厂家接口实现文件文件上传httpclient">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="内网穿透ngrok_ngrokcc_cpolar">
                         
-                        <span class="card-title">调第三方厂家接口实现文件文件上传httpclient</span>
+                        <span class="card-title">内网穿透ngrok_ngrokcc_cpolar</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -746,37 +762,38 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/springBoot%E7%95%AA%E5%A4%96%E7%AF%87/" class="post-category">
-                                    springBoot番外篇
+                            <a href="/categories/%E5%BB%BA%E7%AB%99%E4%B9%8B%E8%B7%AF/" class="post-category">
+                                    建站之路
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/springboot/">
-                        <span class="chip bg-color">springboot</span>
+                    <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
+                        <span class="chip bg-color">内网穿透</span>
                     </a>
                     
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
+                    <a href="/tags/ngrok/">
+                        <span class="chip bg-color">ngrok</span>
                     </a>
                     
-                    <a href="/tags/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/">
-                        <span class="chip bg-color">上传文件</span>
+                    <a href="/tags/ngrokcc/">
+                        <span class="chip bg-color">ngrokcc</span>
                     </a>
                     
-                    <a href="/tags/httpclient/">
-                        <span class="chip bg-color">httpclient</span>
+                    <a href="/tags/cpolar/">
+                        <span class="chip bg-color">cpolar</span>
                     </a>
                     
                 </div>
