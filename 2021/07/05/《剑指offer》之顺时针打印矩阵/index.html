@@ -420,15 +420,15 @@
             <div id="articleContent">
                 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天做一道关于矩阵的题目。思路很简单，就是要考虑全面。</p>
 <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字，例如，如果输入如下4 X 4矩阵： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 则依次打印出数字1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10.</p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>就是顺时针打印，不能重复打印元素。注意四个变量，上下左右。<br><img src="https://img-blog.csdnimg.cn/20200205114303573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>就是顺时针打印，不能重复打印元素。注意四个变量，上下左右。<br>!(<a href="https://img-blog.csdnimg.cn/20200205114303573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">https://img-blog.csdnimg.cn/20200205114303573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70</a>)</p>
 <h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><p>我们先直接思路解题，代码不是很简洁，但是思路算是比较清晰，先判断数组是否为空。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">public ArrayList&lt;Integer&gt; printMatrix(int [][] matrix) &#123;</span><br><span class="line">        if(matrix&#x3D;&#x3D;null)&#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">        ArrayList&lt;Integer&gt; list&#x3D;new ArrayList&lt;&gt;();</span><br><span class="line">        &#x2F;&#x2F;设置四个边界值。</span><br><span class="line">        int n&#x3D;matrix.length;</span><br><span class="line">        int m&#x3D;matrix[0].length;</span><br><span class="line">        int x&#x3D;0;</span><br><span class="line">        int y&#x3D;0;</span><br><span class="line">        while(n&gt;x &amp;&amp; m&gt;y)&#123;</span><br><span class="line">            int i&#x3D;x;</span><br><span class="line">            int j&#x3D;y;</span><br><span class="line">            &#x2F;&#x2F;最外层从左往右输出</span><br><span class="line">            while(j&lt;m)&#123;</span><br><span class="line">                list.add(matrix[i][j]);</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            j--;</span><br><span class="line">            i++;</span><br><span class="line">            &#x2F;&#x2F;最外层从上往下输出</span><br><span class="line">            while(i&lt;n)&#123;</span><br><span class="line">                list.add(matrix[i][j]);</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            i--;</span><br><span class="line">            j--;</span><br><span class="line">            &#x2F;&#x2F;最外层从右往左输出，注意排除和前面的从左往右重复</span><br><span class="line">            while(j&gt;&#x3D;y&amp;&amp;n!&#x3D;x+1)&#123;</span><br><span class="line">                list.add(matrix[i][j]);</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            j++;</span><br><span class="line">            i--;</span><br><span class="line">            &#x2F;&#x2F;最外层从下往上输出，注意排除和前面的从上往下重复</span><br><span class="line">            while(i&gt;x &amp;&amp;m!&#x3D;y+1)&#123;</span><br><span class="line">                list.add(matrix[i][j]);</span><br><span class="line">                i--;</span><br><span class="line">            &#125;</span><br><span class="line">            n--;</span><br><span class="line">            m--;</span><br><span class="line">            x++;</span><br><span class="line">            y++;</span><br><span class="line">        &#125;</span><br><span class="line">        return list;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>main 方法</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        int [][]matrix&#x3D;&#123;&#123;1,2,3,4,5&#125;,&#123;6,7,8,9,10&#125;,&#123;11,12,13,14,15&#125;&#125;;</span><br><span class="line">        &#x2F;&#x2F;int [][]matrix&#x3D;&#123;&#123;1,2,3,4&#125;,&#123;5,6,7,8&#125;,&#123;9,10,11,12&#125;,&#123;13,14,15,16&#125;,&#123;17,18,19,20&#125;&#125;;</span><br><span class="line">        for(int i&#x3D;0;i&lt;matrix.length;i++)&#123;</span><br><span class="line">            for (int j&#x3D;0;j&lt;matrix[0].length;j++)&#123;</span><br><span class="line">                System.out.print(matrix[i][j]+&quot;\t&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">        Solution solution&#x3D;new Solution();</span><br><span class="line">        ArrayList&lt;Integer&gt; list&#x3D;solution.printMatrix(matrix);</span><br><span class="line">        for(int i&#x3D;0;i&lt;list.size();i++)&#123;</span><br><span class="line">            System.out.print(list.get(i)+&quot;\t&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/2020020511575325.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20200205115848197.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>!(<a href="https://img-blog.csdnimg.cn/2020020511575325.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">https://img-blog.csdnimg.cn/2020020511575325.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70</a>)</p>
+<p>!(<a href="https://img-blog.csdnimg.cn/20200205115848197.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">https://img-blog.csdnimg.cn/20200205115848197.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9xdWVsbGFuYW4uYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70</a>)</p>
 
                 
             </div>
@@ -706,12 +706,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
-                    </a>
-                    
                     <a href="/tags/%E5%8A%A8%E6%80%81%E6%B3%A8%E5%85%A5/">
                         <span class="chip bg-color">动态注入</span>
+                    </a>
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
                     </a>
                     
                     <a href="/tags/%E6%98%A0%E5%B0%84/">
@@ -763,12 +763,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/springboot/">
-                        <span class="chip bg-color">springboot</span>
-                    </a>
-                    
                     <a href="/tags/java/">
                         <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/springboot/">
+                        <span class="chip bg-color">springboot</span>
                     </a>
                     
                     <a href="/tags/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/">
