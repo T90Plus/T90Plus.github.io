@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="《剑指offer》之斐波那契数列系列, 繁花似锦&#39;Blogs">
+    <meta name="keywords" content="centOS7 安装nginx, 繁花似锦&#39;Blogs">
     <meta name="description" content="民国三年等不到一场雨，此生等不到表哥一句我带你">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>《剑指offer》之斐波那契数列系列 | 繁花似锦&#39;Blogs</title>
+    <title>centOS7 安装nginx | 繁花似锦&#39;Blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -247,12 +247,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">《剑指offer》之斐波那契数列系列</h1>
+                    <h1 class="description center-align post-title">centOS7 安装nginx</h1>
                 </div>
             </div>
         </div>
@@ -368,12 +368,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B/">
-                                <span class="chip bg-color">《剑指offer》</span>
+                            <a href="/tags/nginx/">
+                                <span class="chip bg-color">nginx</span>
                             </a>
                         
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
+                            <a href="/tags/centos/">
+                                <span class="chip bg-color">centos</span>
                             </a>
                         
                     </div>
@@ -384,8 +384,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/nginx/" class="post-category">
+                                nginx
                             </a>
                         
                     </div>
@@ -397,7 +397,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-09
+                    2021-07-19
                 </div>
                 
 
@@ -418,28 +418,43 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>斐波那契数列 算是比较常见的算法题了。<br>f(1)=1;<br>f(2)=1;<br>f(3)=2;<br>…</p>
-<a id="more"></a>
-<p>f(n)=f(n-1)+f(n-2);<br>一般采用递归的思想。今天做了几个关于斐波那契数列，都记录下来。</p>
-<h1 id="题目一"><a href="#题目一" class="headerlink" title="题目一"></a>题目一</h1><p>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。<br>n&lt;=39</p>
-<p>这个是最原始的，就是上面我说的斐波那契数列。代码实现如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public int Fibonacci(int n) &#123;</span><br><span class="line">        if(n&lt;0)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;else if(n&#x3D;&#x3D;1 || n&#x3D;&#x3D;2)&#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">        return Fibonacci(n-1)+Fibonacci(n-2);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>可以看到非常简单，但是递归算法虽然方便，但是耗时比较长，我们也可以用循环实现。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public int Fibonacci(int n) &#123;</span><br><span class="line"></span><br><span class="line">        if(n&lt;0)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;else if(n&#x3D;&#x3D;1 || n&#x3D;&#x3D;2)&#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">        int a&#x3D;1;</span><br><span class="line">        int b&#x3D;1;</span><br><span class="line">        int c&#x3D;0;</span><br><span class="line">        for(int i&#x3D;3;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">            c&#x3D;a+b;</span><br><span class="line">            a&#x3D;b;</span><br><span class="line">            b&#x3D;c;</span><br><span class="line">        &#125;</span><br><span class="line">        return c;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>用循环实现的话，减少了时间损耗，增加了空间成本。所以具体情况具体分析还得。</p>
-<h1 id="题目二"><a href="#题目二" class="headerlink" title="题目二"></a>题目二</h1><p>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。</p>
-<p>这是一道斐波那契数列，我们读题可以发现。<br>只有一个台阶，一种跳法。<br>f(1)=1;<br>只要两个台阶，两种跳法。<br>f(2)=2；</p>
-<p>只要三个台阶，从第一个台阶跳2步上来，或者从第二个台阶跳一步上来。<br>f(3)=f(1)+f(2)</p>
-<p>n 个台阶，从n-1台阶跳一步上来，或者从n-2 台阶跳2步上来。<br>f(n)=f(n-1)+f(n-2);<br>所以这就是一道典型的斐波那契数列。代码和上面一样。</p>
-<h1 id="题目三"><a href="#题目三" class="headerlink" title="题目三"></a>题目三</h1><p>一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
-<p>在上面的基础上，可以跳n个台阶。<br>f(n)=f(n-1)+f(n-2)+f(n-3)+……+f(3)+f(2)+f(1);<br>f(n-1)=f(n-2)+f(n-3)+……+f(3)+f(2)+f(1);</p>
-<p>所以上试减下试。<br>f(n)-f(n-1)=f(n-1)+f(n-2)+f(n-3)+……+f(3)+f(2)+f(1)-[f(n-2)+f(n-3)+……+f(3)+f(2)+f(1)];<br> 所以：<br> f(n)-f(n-1)=f(n-1)；<br> f(n)=2f(n-1);n&gt;1<br>所以代码为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public int JumpFloorII(int target) &#123;</span><br><span class="line">        if(target&lt;1) return 0;</span><br><span class="line">    	else if (target&#x3D;&#x3D;1) return 1;</span><br><span class="line">        else return 2*JumpFloorII(target-1);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在家呆的时间很长，没有linux 服务器，所以就在腾讯云上买了一个云服务器折腾一下，重置秘密重装系统和用远程连接什么的就不讲了，都比较简单，在控制台上都可以操作。我安装后，想搭建一个nginx试试。</p>
+<p>自己也是采坑一路，虽然以前也在Ubuntu上安装nginx 的，但是还是和centOS 上有些不一样的。</p>
+<p>如果是在腾讯云上买的服务器，其实可以一步到位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install nginx</span><br></pre></td></tr></table></figure>
+<p>但是我是下载的nginx 安装包，上传到服务器，安装的。</p>
+<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;</span><br></pre></td></tr></table></figure>
+<p>想要各个什么版本，自己选，我这里选的是1.16.2<br><img src="https://img-blog.csdnimg.cn/2020022313252156.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70"></p>
+<h1 id="上传-amp-解压"><a href="#上传-amp-解压" class="headerlink" title="上传&amp;解压"></a>上传&amp;解压</h1><p>因为服务器上什么都没有，要上传安装包的，需要先安装lrzsz.我这里有rz 明了上传的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install lrzsz</span><br></pre></td></tr></table></figure>
+<p>安装好之后，就将安装包解压</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nginx-1.6.2.tar.gz</span><br></pre></td></tr></table></figure>
+<p>解压后如下<br><img src="https://img-blog.csdnimg.cn/20200223133024492.png"></p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>刚开始我直接运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd nginx-1.6.2</span><br><span class="line">.&#x2F;configure </span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<p>会报错，就是安装不成功，提示没有什么包，最后想到 nginx 是c语言编写的，需要编译的话，可能是没有c语言环境，所以需要安装环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc gcc-c++</span><br></pre></td></tr></table></figure>
+<p>最后才安装成功。</p>
+<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><p>安装成功后，怎么启动呢，安装到什么位置了呢？<br>默认安装到了这个目录下，我们可以来到这个目录下找到他们。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;local&#x2F;nginx</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200223133625951.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70"><br>可以看到主要就 conf 、logs、sbin 这三个目录啦。conf中的nginx.conf 就是我们主要配置的配置文件，这个我们稍候说，logs 就是nginx 的日志，对我们查看接口请求情况很有帮助。sbin 就是nginx 的命令目录，可以看到就一个nginx 的命令。<br><img src="https://img-blog.csdnimg.cn/20200223133844262.png"></p>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>那我们怎么启动nginx 呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx</span><br></pre></td></tr></table></figure>
 
-<h1 id="题目四"><a href="#题目四" class="headerlink" title="题目四"></a>题目四</h1><p>我们可以用2<em>1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2</em>1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？</p>
-<p>这道题目相对前面几道，比较难理解是斐波那契数列。<br>我们来分析一下。<br>当n=1 时，只有一种情况。<br>f(1)=1;<br>当n=2时，2个2<em>1的小矩形，拼成2</em>2的大矩形。有2种方法。<br>f(2)=2;<br>当n=3时，3个2<em>1的小矩形，拼成2</em>3的大矩形。<br>这个时候我们就要想下，2<em>3的矩形是一个2</em>1 和一个2<em>2的矩形组成的。<br>当n=5时，5个2</em>1的小矩形，拼成2<em>5的大矩形。<br>这个时候我们就要想下，2</em>5的矩形是一个2<em>4的矩形加一个2</em>1的矩形组成，或者一个2<em>3的矩形加一个2</em>2 的矩形组成。</p>
-<p>所以可以推测出还是一个斐波那契数列。<br>f(n)=f(n-1)+f(n-2);</p>
-<p>代码和最开始一样，就不重复啦。</p>
+<h2 id="检查配置文件是否正确"><a href="#检查配置文件是否正确" class="headerlink" title="检查配置文件是否正确"></a>检查配置文件是否正确</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd  &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;</span><br><span class="line">.&#x2F;nginx -t</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200223134102319.png"><br>如上表示成功。</p>
+<h2 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;nginx -s reload</span><br></pre></td></tr></table></figure>
+
+<h2 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;nginx -s stop</span><br></pre></td></tr></table></figure>
+<p>当然我们可以通过查看进程号，来杀死进程。<br>查看nginx 的进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef|grep nginx</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/2020022313433980.png"></p>
+<h1 id="权限问题"><a href="#权限问题" class="headerlink" title="权限问题"></a>权限问题</h1><p>在nginx 已经搭建好之后，我网上找了一个静态html 文件试了一下，结果配置好路劲后发现，一直访问不了，界面上报403f.。看了一下nginx 日志发现如下错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;root&#x2F;love5&#x2F;index.html&quot; failed (13: Permission denied), client: xx.xx.xx.xx, server: localhost, request: &quot;GET &#x2F;index&#x2F;index.html HTTP&#x2F;1.1&quot;, host: &quot;xx.xx.xx.xx:8080&quot;</span><br></pre></td></tr></table></figure>
+<p>造成这个原因是因为我们运行nginx 的时候权限不是root 权限，所以需要在nginx.conf 做如下修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user  root;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200223135555930.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70"><br>最后总算是通啦，在本地浏览器上成功的显示了静态文件。<br><img src="https://img-blog.csdnimg.cn/20200223135707313.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70"><br>网上找的资源么，但是女朋友不知道，把做好的这个给女朋友看，女朋友以为是我自己做的送给她的，着实开心了一下哈哈。</p>
+<h1 id="番外"><a href="#番外" class="headerlink" title="番外"></a>番外</h1><p>安装nginx 不是终极目的，还是想把项目放到服务器上跑的，由于自己学的都是Java，所以就在服务器上安装jdk ，但是自带的都是openjdk ，而我们本地的用的都是Oracle jdk.所以想安装oracle jdk 。但是官网上不知道怎么回事，一直下载不下。<br>官网：<a href="https://www.oracle.com/java/technologies/javase-jdk8-downloads.html" target="_blank" rel="noopener">https://www.oracle.com/java/technologies/javase-jdk8-downloads.html</a><br><img src="https://img-blog.csdnimg.cn/20200223140418865.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3NzkwMDEx,size_16,color_FFFFFF,t_70"><br>提示我需要勾选许可，但是没有地方勾选，把我气得不轻，没办法我就安装的open jdk。然后在本地打包一个测试spring boot jar 包，看在服务器上能否运行。发现是可以运行的。看来在服务器上安装open jdk 也是可以的。</p>
 
                 
             </div>
@@ -466,7 +481,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://cracker.wang/2021/07/09/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%B3%BB%E5%88%97/">http://cracker.wang/2021/07/09/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%B3%BB%E5%88%97/</a>
+                    <a href="http://cracker.wang/2021/07/19/centOS7%20%E5%AE%89%E8%A3%85nginx/">http://cracker.wang/2021/07/19/centOS7%20%E5%AE%89%E8%A3%85nginx/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -504,12 +519,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B/">
-                                    <span class="chip bg-color">《剑指offer》</span>
+                                <a href="/tags/nginx/">
+                                    <span class="chip bg-color">nginx</span>
                                 </a>
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
+                                <a href="/tags/centos/">
+                                    <span class="chip bg-color">centos</span>
                                 </a>
                             
                         </div>
@@ -679,9 +694,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/07/19/centOS7%20%E5%AE%89%E8%A3%85nginx/">
                     <div class="card-image">
@@ -699,9 +715,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -714,6 +730,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -736,19 +753,19 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/07/09/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">
+                <a href="/2021/07/09/%E3%80%8A%E5%89%91%E6%8C%87offer%E3%80%8B%E4%B9%8B%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%B3%BB%E5%88%97/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="《剑指offer》之反转链表">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="《剑指offer》之斐波那契数列系列">
                         
-                        <span class="card-title">《剑指offer》之反转链表</span>
+                        <span class="card-title">《剑指offer》之斐波那契数列系列</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言今天又刷了一道关于链表的，本来打算接着前面一篇关于链表的写，但是想想还是再起一篇。
+                            前言斐波那契数列 算是比较常见的算法题了。f(1)=1;f(2)=1;f(3)=2;…
                         
                     </div>
                     <div class="publish-info">
